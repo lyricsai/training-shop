@@ -21,8 +21,5 @@ const MenuLink = ({ menuItems }) => {
         )
     )
 }
-MenuLink.propTypes = {
-    menuItems: PropTypes.Array,
-}
 
 export default MenuLink

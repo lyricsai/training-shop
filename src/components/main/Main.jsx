@@ -1,4 +1,4 @@
-// import { mapStateToProps } from '../../redux/reducers/mainReducer'
+import { mapStateToProps } from '../../redux/reducers/mainReducer'
 // import Clothes from '../clothes/Clothes'
 // import Home from '../home/Home'
 // import Product from '../product/Product'
