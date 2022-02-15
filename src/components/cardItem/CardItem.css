@@ -1,0 +1,48 @@
+.cards-item {
+    margin: 30px 0;
+    max-height: 378px;
+    max-width: 255px;
+}
+
+.product__price {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 16px;
+}
+.product__info {
+    margin: 16px 0 30px;
+}
+.product__info_bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.img__containter {
+    position: relative;
+}
+
+.cards-item .product__title {
+    margin-bottom: 12px;
+    opacity: 0.6;
+}
+.product__prev_price {
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 13px;
+    text-decoration-line: line-through;
+    opacity: 0.4;
+    color: #121212;
+    padding-left: 4px;
+}
+/* @media screen and (max-width: 1080px) {
+    .cards-item {
+        padding: 15px;
+    }
+} */
+@media (max-width: 1049px) {
+    .clothes__products .cards-item:nth-child(7),
+    .clothes__products .cards-item:nth-child(8) {
+        background-color: yellow;
+    }
+}

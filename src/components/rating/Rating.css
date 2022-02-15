@@ -1,0 +1,24 @@
+.rating {
+    position: relative;
+    background: transparent;
+    display: flex-inline;
+    justify-content: center;
+    align-items: center;
+    gap: 0.3em;
+    overflow: hidden;
+    height: 14px;
+}
+
+.rating__star {
+    font-size: 1em;
+    cursor: pointer;
+    color: #f0cc84;
+    transition: filter linear 0.3s;
+}
+
+.rating__star:hover {
+    filter: drop-shadow(1px 1px 4px gold);
+}
+.cards-item .rating__star:last-child {
+    color: #e5e5e5;
+}

@@ -1,0 +1,16 @@
+.socialNetwork {
+    display: flex;
+}
+.socialNetwork li a {
+    height: 14px;
+    width: 14px;
+    margin: 5px;
+    opacity: 0.8;
+}
+
+.footer .socialNetwork li a {
+    height: 18px;
+    width: 18px;
+    margin: 6px;
+    font-size: 18px;
+}

@@ -1,0 +1,14 @@
+.collections {
+    display: flex;
+    justify-content: space-between;
+    margin: 96px auto;
+    max-width: 1140px;
+    padding: 0 15px;
+}
+@media (max-width: 1110px) {
+    .collections {
+        margin: 32px auto;
+        align-items: center;
+        flex-direction: column;
+    }
+}

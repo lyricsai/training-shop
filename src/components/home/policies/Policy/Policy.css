@@ -1,0 +1,33 @@
+.main__policy {
+    display: flex;
+    height: 103px;
+    align-items: center;
+    vertical-align: middle;
+}
+.main__policy_icon {
+    width: 40px;
+    height: 40px;
+    opacity: 0.8;
+}
+.main__policy_title {
+    grid-area: title;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.06em;
+    margin-bottom: 4px;
+}
+.main__policy_text {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 22px;
+    opacity: 0.9;
+}
+.main__policy i {
+    font-size: 30px;
+}
+.main__policy_container {
+    height: 40px;
+    max-width: 302px;
+    width: 100%;
+}

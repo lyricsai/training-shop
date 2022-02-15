@@ -1,0 +1,30 @@
+.cart__title {
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 22px;
+    letter-spacing: 0.06em;
+    color: #fff;
+}
+.cart {
+    width: 388px;
+    min-height: 720px;
+    right: 0;
+    top: 0;
+    position: absolute;
+    background-color: #fff;
+}
+.cart__header {
+    background-color: #121212;
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 20px;
+}
+.icon-close {
+    opacity: 0.6;
+    font-size: 12px;
+}
+.deliveryInfo,
+.paymentInfo {
+    color: #e5e5e5;
+}

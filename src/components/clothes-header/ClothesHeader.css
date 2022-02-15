@@ -1,0 +1,38 @@
+.clothes__cats {
+    display: flex;
+    justify-content: space-between;
+}
+.clothes__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 48px;
+}
+.clothes__cats_item a {
+    text-transform: uppercase;
+    font-size: 12px;
+    line-height: 13px;
+    letter-spacing: 0.06em;
+    text-align: right;
+    padding-left: 32px;
+    opacity: 0.6;
+}
+.clothes__header span {
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 25px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+.clothes__header ._active {
+    font-weight: 500;
+    opacity: 1;
+}
+@media screen and (max-width: 870px) {
+    .clothes__cats_item a {
+        display: none;
+    }
+    .clothes__cats_item a._active {
+        display: block;
+    }
+}

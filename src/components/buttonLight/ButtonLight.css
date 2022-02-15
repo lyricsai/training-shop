@@ -1,0 +1,21 @@
+.btnLight {
+    width: 340px;
+    height: 48px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 15px;
+    letter-spacing: 0.06em;
+    opacity: 0.9;
+    background: #f8f8f8;
+    color: #121212;
+    margin: 48px 0 0;
+}
+.btnLight:hover {
+    background-color: #e5e5e5;
+}
+.btnLight:active {
+    background-color: #9c9c9c;
+    color: #fff;
+}

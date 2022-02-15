@@ -1,0 +1,48 @@
+.filter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 32px;
+    margin: 36px 0;
+    text-transform: uppercase;
+    width: 100%;
+}
+.filter__controls {
+    width: 95px;
+    display: flex;
+    justify-content: space-between;
+    opacity: 0.6;
+}
+.filter__view {
+    width: 60px;
+    display: flex;
+    justify-content: space-between;
+}
+.filter__select {
+    opacity: 0.6;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 15px;
+    letter-spacing: 0.06em;
+}
+.icon-menu-def {
+    opacity: 0.6;
+}
+.select__label {
+    font-family: Spartan;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 15px;
+    letter-spacing: 0.06em;
+    text-align: left;
+}
+select {
+    display: none;
+}
+.filter .icon-arrow {
+    position: initial;
+}
+.filter .icon {
+    transform: rotate(90deg);
+}

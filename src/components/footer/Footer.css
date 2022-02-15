@@ -1,0 +1,15 @@
+.footer__nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+}
+.footer {
+    color: #121212;
+}
+@media (max-width: 600px) {
+    .footer__nav {
+        justify-content: center;
+        flex-direction: column;
+        margin: 12px;
+    }
+}

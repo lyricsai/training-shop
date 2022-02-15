@@ -1,0 +1,35 @@
+.main__category {
+    position: relative;
+}
+
+.main__category img {
+    width: 100%;
+}
+.campaignTeaser {
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    text-align: center;
+    border-radius: 4px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-transform: uppercase;
+    padding: 13px 24px;
+    font-weight: 600;
+    line-height: 22px;
+}
+
+.main__category:last-child {
+    grid-column: 2 span;
+}
+.main__category a {
+    cursor: pointer;
+}
+@media (max-width: 1100px) {
+    .main__category {
+        overflow: hidden;
+    }
+}

@@ -1,0 +1,24 @@
+.contacts {
+    display: flex;
+    width: 483px;
+    justify-content: space-between;
+    align-items: center;
+}
+.phone {
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 12px;
+}
+.location {
+    font-family: "Inter", sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 13px;
+    letter-spacing: 0.03em;
+}
+.clock {
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 12px;
+    padding: 6px 0;
+}

@@ -1,0 +1,29 @@
+.product__related {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 0 96px;
+}
+.product__related_title {
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 25px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #121212;
+    margin-bottom: 48px;
+}
+.related__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.related__top_btn {
+    position: relative;
+    width: 88px;
+    top: -40px;
+    opacity: 0.6;
+}
+.related__top_btn span {
+    /* top: 40px; */
+}

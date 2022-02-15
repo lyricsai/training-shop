@@ -1,0 +1,18 @@
+.header__topBar_container {
+    width: 100%;
+    left: 0;
+    /* position: absolute; */
+    background-color: #121212;
+    display: flex;
+    justify-content: center;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+.header__topBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #ffffff;
+    flex: 0 1 1110px;
+}

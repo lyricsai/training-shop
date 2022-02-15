@@ -1,0 +1,20 @@
+.clothes__products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.clothes__loader {
+    margin: 48px 0 80px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+@media screen and (max-width: 1070px) {
+    .clothes__products {
+        justify-content: space-around;
+    }
+    .clothes__products :nth-child(7),
+    .clothes__products :nth-child(8) {
+        display: none;
+    }
+}

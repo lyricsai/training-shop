@@ -1,0 +1,8 @@
+li .active {
+    font-family: Spartan;
+    font-size: 14px;
+    font-weight: 600;
+}
+a {
+    font-weight: inherit;
+}

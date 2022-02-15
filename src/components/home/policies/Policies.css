@@ -1,0 +1,22 @@
+.main__policies {
+    border-bottom: 2px solid #f8f8f8;
+}
+
+.main__policies .container {
+    display: flex;
+    justify-content: space-between;
+}
+@media (max-width: 1050px) {
+    .main__policies .container {
+        justify-content: center;
+        align-items: center;
+    }
+    .main__policy_text {
+        display: none;
+    }
+}
+@media (max-width: 767px) {
+    .main__policies {
+        display: none;
+    }
+}
