@@ -6,7 +6,7 @@ function App() {
   return (
     <HashRouter>
       <div className="app" data-test-id='app' >
-        {/* <AppRouter /> */}
+        <AppRouter />
       </div>
     </HashRouter>
   );

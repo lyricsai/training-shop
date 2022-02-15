@@ -8,6 +8,7 @@ import './Main.css'
 import { connect } from 'react-redux'
 
 const Main = ({ page, productType, women, men, filtered, preview }) => {
+    return <main>!!!</main>
 
     let products = {}
     productType === 'women' ? products = women : products = men
