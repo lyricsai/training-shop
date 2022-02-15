@@ -4,9 +4,9 @@ import AppRouter from '../appRouter/AppRouter';
 
 function App() {
   return (
-    <HashRouter basename='/training-shop'>
+    <HashRouter>
       <div className="app" data-test-id='app' >
-        <AppRouter />
+        {/* <AppRouter /> */}
       </div>
     </HashRouter>
   );
