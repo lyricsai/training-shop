@@ -1,1 +1,1 @@
-# training-shop
+https://lyricsai.github.io/training-shop
