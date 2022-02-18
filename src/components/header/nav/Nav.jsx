@@ -24,22 +24,24 @@ const Nav = () => {
 
     return (
         <>
-            <div className="container">
+            <div className="container" onClick={toggleMenu}>
                 <nav>
-                    <Burger toggleMenu={toggleMenu} isOpen={menuOpen} />
                     <Link to="/" className='header-nav-logo' data-test-id='header-logo-link'>CleverShop</Link>
                     <ul className="menu" data-test-id='menu'>
                         <MenuLink menuItems={menuItems} />
                     </ul>
                     <Actions />
+                    <Burger toggleMenu={toggleMenu} isOpen={menuOpen} />
                 </nav>
             </div>
             <style jsx="true">{`
-                @media(max-width: 980px) { 
+                @media(max-width: 996px) { 
                     .menu{
-                    display: ${menuOpen ? 'flex' : 'none'};
-                
-                }
+                    transform: translate${menuOpen ? '(0)' : '(-100%)'};
+                    }
+                    body{
+                        overflow: ${menuOpen ? 'hidden' : 'auto'} 
+                    }
                 }
         `}</style>
         </>

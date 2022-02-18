@@ -3,7 +3,7 @@ import { ButtonLight } from '../buttonLight/ButtonLight'
 import CardItem from '../cardItem/CardItem'
 import { ClothesHeader } from '../clothes-header/ClothesHeader'
 import './Clothes.css'
-import loading from '../../assets/static/Square-Loading.png'
+import loading from '../../assets/static/Square-Loading.gif'
 
 const Clothes = ({ productType, products }) => {
 

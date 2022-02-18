@@ -40,7 +40,9 @@
     margin: 12px;
 }
 .button-left,
-.button-right {
+.button-right,
+.swiper-slide-prev::after,
+.swiper-slide-next::after {
     position: absolute;
     top: 50%;
     border-radius: 50%;
@@ -56,9 +58,11 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
-.button-right {
+.button-right,
+.swiper-slide-next {
     transform: rotate(180deg);
 }
+
 @media (max-width: 1100px) {
 }
 
