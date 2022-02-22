@@ -5,12 +5,12 @@ import './ProductsPage.css'
 import Main from '../../components/main/Main'
 
 
-const ProductsPage = ({ productType }) => {
+const ProductsPage = ({ category }) => {
 
     return (
         <Fragment>
             <Header />
-            <Main page='products' productType={productType} />
+            <Main page='products' category={category} />
             <Footer />
         </Fragment>
     )

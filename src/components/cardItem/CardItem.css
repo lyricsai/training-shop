@@ -20,6 +20,14 @@
 }
 .img__containter {
     position: relative;
+    width: 255px;
+    height: 318px;
+}
+.img__containter img {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
 }
 
 .cards-item .product__title {

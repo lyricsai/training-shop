@@ -4,12 +4,12 @@ import Header from '../../components/header/Header'
 import Main from '../../components/main/Main'
 import './ProductPage.css'
 
-const ProductPage = ({ productType }) => {
+const ProductPage = ({ category }) => {
 
     return (
         <Fragment>
             <Header />
-            <Main page='product' productType={productType} />
+            <Main page='product' category={category} />
             <Footer />
         </Fragment>
     )

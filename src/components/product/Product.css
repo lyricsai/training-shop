@@ -3,6 +3,7 @@
 }
 .product .container {
     display: flex;
+    padding: 0;
 }
 .product h5 {
     text-transform: uppercase;
@@ -145,12 +146,22 @@
     .product .container {
         flex-direction: column;
         align-items: center;
+        padding: 0 15px;
     }
     .product__related .cards-item img {
         width: 90%;
     }
+    .product__second_part {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 16px;
+    }
 }
 @media (max-width: 600px) {
+    .product .container {
+        padding: 0 5px;
+    }
     .product__cart_policy,
     .product__guaranteed,
     .product__payments,
@@ -160,9 +171,6 @@
     .product__second_part {
         padding: 5px;
         margin: 5px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
     }
     .product__reviews {
         width: 90vw;

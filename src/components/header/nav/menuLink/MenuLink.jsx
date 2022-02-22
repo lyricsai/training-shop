@@ -3,13 +3,15 @@ import { NavLink } from 'react-router-dom'
 
 import './MenuLink.css'
 
-const MenuLink = ({ menuItems }) => {
+const MenuLink = ({ menuItems, show, hide }) => {
 
     return (
         menuItems.map(({ id, path, title }) =>
             <li key={id}
             >
                 <NavLink
+                    onFocus={show}
+                    onBlur={hide}
                     key={id}
                     to={`/${path}`}
                     className='menu-item'

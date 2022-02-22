@@ -5,8 +5,7 @@ import { Link } from 'react-router-dom'
 
 const ProductHeader = ({ products }) => {
 
-    let { available, title, productType, quantity } = products[2]
-
+    let { available, name, category, quantity } = products[2]
 
     return (
         <div className='product__header'>
@@ -15,16 +14,16 @@ const ProductHeader = ({ products }) => {
                     <div className="products__path">
                         <span className='products__path_home'><Link to='/' >Home</Link> </span>
                         <span className='products__path_arrow'> ► </span>
-                        <span className='products__path_home'><Link to={`/${productType}`} >{productType}</Link></span>
+                        <span className='products__path_home'><Link to={`/${category}`} >{category}</Link></span>
                         <span className='products__path_arrow'> ► </span>
-                        <span className='products__title_active'>{title}</span>
+                        <span className='products__title_active'>{name}</span>
                     </div>
                     <div className="products__share">
                         <i className='icon-share'> </i>
                         <span> Share</span>
                     </div>
                 </div>
-                <h1 className='product__title'>{title}</h1>
+                <h1 className='product__title'>{name}</h1>
                 <div className='product__bottomBar'>
                     <div>
                         <div className="stars"><Rating /></div>

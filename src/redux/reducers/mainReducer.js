@@ -1,23 +1,23 @@
 import coll1 from '../../assets/static/collection1.jpg'
 import coll2 from '../../assets/static/collection2.jpg'
 
-import men1 from '../../assets/static/men1.jpg'
-import men2 from '../../assets/static/men2.jpg'
-import men3 from '../../assets/static/men3.jpg'
-import men4 from '../../assets/static/men4.jpg'
-import men5 from '../../assets/static/men5.jpg'
-import men6 from '../../assets/static/men6.jpg'
-import men7 from '../../assets/static/men7.jpg'
-import men8 from '../../assets/static/men8.jpg'
+// import men1 from '../../assets/static/men1.jpg'
+// import men2 from '../../assets/static/men2.jpg'
+// import men3 from '../../assets/static/men3.jpg'
+// import men4 from '../../assets/static/men4.jpg'
+// import men5 from '../../assets/static/men5.jpg'
+// import men6 from '../../assets/static/men6.jpg'
+// import men7 from '../../assets/static/men7.jpg'
+// import men8 from '../../assets/static/men8.jpg'
 
-import women1 from '../../assets/static/women1.jpg'
-import women2 from '../../assets/static/women2.jpg'
-import women3 from '../../assets/static/women3.jpg'
-import women4 from '../../assets/static/women4.jpg'
-import women5 from '../../assets/static/women5.jpg'
-import women6 from '../../assets/static/women6.jpg'
-import women7 from '../../assets/static/women7.jpg'
-import women8 from '../../assets/static/women8.jpg'
+// import women1 from '../../assets/static/women1.jpg'
+// import women2 from '../../assets/static/women2.jpg'
+// import women3 from '../../assets/static/women3.jpg'
+// import women4 from '../../assets/static/women4.jpg'
+// import women5 from '../../assets/static/women5.jpg'
+// import women6 from '../../assets/static/women6.jpg'
+// import women7 from '../../assets/static/women7.jpg'
+// import women8 from '../../assets/static/women8.jpg'
 
 import related1 from '../../assets/static/related1.jpg'
 import related2 from '../../assets/static/related2.jpg'
@@ -49,7 +49,7 @@ import mastercard from '../../assets/payments/mastercard_x42.png'
 import discover from '../../assets/payments/discover_x42.png'
 import americanExpress from '../../assets/payments/american-express_x42.png'
 
-import { GET_BANNERS, GET_COLLECTIONS, GET_MEN, GET_WOMEN, GET_FILTERED, GET_PREVIEW, GET_REVIEW } from '../actionsCreators/ActionCreator'
+import { GET_BANNERS, GET_COLLECTIONS, GET_FILTERED, GET_PREVIEW, GET_REVIEW } from '../actionsCreators/ActionCreator'
 
 const defaultState = {
     banners: [
@@ -61,34 +61,34 @@ const defaultState = {
         { id: 1, src: coll1 },
         { id: 2, src: coll2 }
     ],
-    women: [
-        { id: 1, src: women1, title: "Women's tracksuit Q109", price: "30.00", rating: 4, productType: 'women', discount: false, discountPrice: null, available: 'in stock', quantity: 777, },
-        { id: 2, src: women2, title: "Women's tracksuit Q109", price: "30.00", rating: 4, productType: 'women', discount: true, discountPrice: 50, available: 'in stock', quantity: 777, prevPrice: '60.00' },
-        { id: 3, src: women3, title: "Women's tracksuit Q109", price: "30.00", rating: 4, productType: 'women', discount: false, discountPrice: null, available: 'in stock', quantity: 777, },
-        { id: 4, src: women4, title: "Women's tracksuit Q109", price: "30.00", rating: 4, productType: 'women', discount: false, discountPrice: null, available: 'in stock', quantity: 777, },
-        { id: 5, src: women5, title: "Women's tracksuit Q109", price: "30.00", rating: 4, productType: 'women', discount: false, discountPrice: null, available: 'in stock', quantity: 777, },
-        { id: 6, src: women6, title: "Women's tracksuit Q109", price: "30.00", rating: 4, productType: 'women', discount: false, discountPrice: null, available: 'in stock', quantity: 777, },
-        { id: 7, src: women7, title: "Women's tracksuit Q109", price: "30.00", rating: 4, productType: 'women', discount: false, discountPrice: null, available: 'in stock', quantity: 777, },
-        { id: 8, src: women8, title: "Women's tracksuit Q109", price: "30.00", rating: 4, productType: 'women', discount: false, discountPrice: null, available: 'in stock', quantity: 777, }
-    ],
-    men: [
-        { id: 1, src: men1, title: "Women's tracksuit Q109", price: "30.00", rating: 4, productType: 'men', discount: false, discountPrice: null, available: 'in stock', quantity: 777, },
-        { id: 2, src: men2, title: "Women's tracksuit Q109", price: "30.00", rating: 4, productType: 'men', discount: false, discountPrice: null, available: 'in stock', quantity: 777, },
-        { id: 3, src: men3, title: "Women's tracksuit Q109", price: "30.00", rating: 4, productType: 'men', discount: false, discountPrice: null, available: 'in stock', quantity: 777, },
-        { id: 4, src: men4, title: "Women's tracksuit Q109", price: "30.00", rating: 4, productType: 'men', discount: false, discountPrice: null, available: 'in stock', quantity: 777, },
-        { id: 5, src: men5, title: "Women's tracksuit Q109", price: "30.00", rating: 4, productType: 'men', discount: false, discountPrice: null, available: 'in stock', quantity: 777, },
-        { id: 6, src: men6, title: "Women's tracksuit Q109", price: "30.00", rating: 4, productType: 'men', discount: false, discountPrice: null, available: 'in stock', quantity: 777, },
-        { id: 7, src: men7, title: "Women's tracksuit Q109", price: "30.00", rating: 4, productType: 'men', discount: false, discountPrice: null, available: 'in stock', quantity: 777, },
-        { id: 8, src: men8, title: "Women's tracksuit Q109", price: "30.00", rating: 4, productType: 'men', discount: false, discountPrice: null, available: 'in stock', quantity: 777, }
-    ],
+    // women: [
+    //     { id: 1, src: women1, title: "Women's tracksuit Q109", price: "30.00", rating: 4, productType: 'women', discount: false, discountPrice: null, available: 'in stock', quantity: 777, },
+    //     { id: 2, src: women2, title: "Women's tracksuit Q109", price: "30.00", rating: 4, productType: 'women', discount: true, discountPrice: 50, available: 'in stock', quantity: 777, prevPrice: '60.00' },
+    //     { id: 3, src: women3, title: "Women's tracksuit Q109", price: "30.00", rating: 4, productType: 'women', discount: false, discountPrice: null, available: 'in stock', quantity: 777, },
+    //     { id: 4, src: women4, title: "Women's tracksuit Q109", price: "30.00", rating: 4, productType: 'women', discount: false, discountPrice: null, available: 'in stock', quantity: 777, },
+    //     { id: 5, src: women5, title: "Women's tracksuit Q109", price: "30.00", rating: 4, productType: 'women', discount: false, discountPrice: null, available: 'in stock', quantity: 777, },
+    //     { id: 6, src: women6, title: "Women's tracksuit Q109", price: "30.00", rating: 4, productType: 'women', discount: false, discountPrice: null, available: 'in stock', quantity: 777, },
+    //     { id: 7, src: women7, title: "Women's tracksuit Q109", price: "30.00", rating: 4, productType: 'women', discount: false, discountPrice: null, available: 'in stock', quantity: 777, },
+    //     { id: 8, src: women8, title: "Women's tracksuit Q109", price: "30.00", rating: 4, productType: 'women', discount: false, discountPrice: null, available: 'in stock', quantity: 777, }
+    // ],
+    // men: [
+    //     { id: 1, src: men1, title: "Women's tracksuit Q109", price: "30.00", rating: 4, productType: 'men', discount: false, discountPrice: null, available: 'in stock', quantity: 777, },
+    //     { id: 2, src: men2, title: "Women's tracksuit Q109", price: "30.00", rating: 4, productType: 'men', discount: false, discountPrice: null, available: 'in stock', quantity: 777, },
+    //     { id: 3, src: men3, title: "Women's tracksuit Q109", price: "30.00", rating: 4, productType: 'men', discount: false, discountPrice: null, available: 'in stock', quantity: 777, },
+    //     { id: 4, src: men4, title: "Women's tracksuit Q109", price: "30.00", rating: 4, productType: 'men', discount: false, discountPrice: null, available: 'in stock', quantity: 777, },
+    //     { id: 5, src: men5, title: "Women's tracksuit Q109", price: "30.00", rating: 4, productType: 'men', discount: false, discountPrice: null, available: 'in stock', quantity: 777, },
+    //     { id: 6, src: men6, title: "Women's tracksuit Q109", price: "30.00", rating: 4, productType: 'men', discount: false, discountPrice: null, available: 'in stock', quantity: 777, },
+    //     { id: 7, src: men7, title: "Women's tracksuit Q109", price: "30.00", rating: 4, productType: 'men', discount: false, discountPrice: null, available: 'in stock', quantity: 777, },
+    //     { id: 8, src: men8, title: "Women's tracksuit Q109", price: "30.00", rating: 4, productType: 'men', discount: false, discountPrice: null, available: 'in stock', quantity: 777, }
+    // ],   
     filtered: [
-        { id: 1, src: related1, title: "Women's tracksuit Q109", price: "30.00", rating: 4, productType: 'women', discount: false, discountPrice: null, available: 'in stock', quantity: 777 },
-        { id: 2, src: related2, title: "Women's tracksuit Q109", price: "30.00", rating: 4, productType: 'women', discount: false, discountPrice: null, available: 'in stock', quantity: 777, prevPrice: '60.00' },
-        { id: 3, src: related3, title: "Women's tracksuit Q109", price: "30.00", rating: 4, productType: 'women', discount: false, discountPrice: null, available: 'in stock', quantity: 777 },
-        { id: 4, src: related4, title: "Women's tracksuit Q109", price: "30.00", rating: 4, productType: 'women', discount: false, discountPrice: null, available: 'in stock', quantity: 777 },
-        { id: 5, src: related5, title: "Women's tracksuit Q109", price: "30.00", rating: 4, productType: 'women', discount: false, discountPrice: null, available: 'in stock', quantity: 777 },
-        { id: 6, src: related6, title: "Women's tracksuit Q109", price: "30.00", rating: 4, productType: 'women', discount: false, discountPrice: null, available: 'in stock', quantity: 777 },
-        { id: 7, src: related7, title: "Women's tracksuit Q109", price: "30.00", rating: 4, productType: 'women', discount: false, discountPrice: null, available: 'in stock', quantity: 777 },
+        { id: 1, images: [{ url: related1 }], title: "Women's tracksuit Q109", price: "30.00", rating: 4, productType: 'women', discount: false, discountPrice: null, available: 'in stock', quantity: 777 },
+        { id: 2, images: [{ url: related2 }], title: "Women's tracksuit Q109", price: "30.00", rating: 4, productType: 'women', discount: false, discountPrice: null, available: 'in stock', quantity: 777, prevPrice: '60.00' },
+        { id: 3, images: [{ url: related3 }], title: "Women's tracksuit Q109", price: "30.00", rating: 4, productType: 'women', discount: false, discountPrice: null, available: 'in stock', quantity: 777 },
+        { id: 4, images: [{ url: related4 }], title: "Women's tracksuit Q109", price: "30.00", rating: 4, productType: 'women', discount: false, discountPrice: null, available: 'in stock', quantity: 777 },
+        { id: 5, images: [{ url: related5 }], title: "Women's tracksuit Q109", price: "30.00", rating: 4, productType: 'women', discount: false, discountPrice: null, available: 'in stock', quantity: 777 },
+        { id: 6, images: [{ url: related6 }], title: "Women's tracksuit Q109", price: "30.00", rating: 4, productType: 'women', discount: false, discountPrice: null, available: 'in stock', quantity: 777 },
+        { id: 7, images: [{ url: related7 }], title: "Women's tracksuit Q109", price: "30.00", rating: 4, productType: 'women', discount: false, discountPrice: null, available: 'in stock', quantity: 777 },
     ],
     preview: [
         { id: 1, src: previewBig },
@@ -120,8 +120,6 @@ const MainReducer = (state = defaultState, { type, payload }) => {
     switch (type) {
         case GET_BANNERS: return { ...state.banners, banners: payload.data }
         case GET_COLLECTIONS: return { ...state.collections, collections: payload.data }
-        case GET_MEN: return { ...state.men, men: payload.data }
-        case GET_WOMEN: return { ...state.women, women: payload.data }
         case GET_FILTERED: return { ...state.filtered, filtered: payload.data }
         case GET_PREVIEW: return { ...state.preview, preview: payload.data }
         case GET_REVIEW: return { ...state.reviews, reviews: payload.data }
@@ -129,29 +127,10 @@ const MainReducer = (state = defaultState, { type, payload }) => {
     }
 }
 
-export default MainReducer
-
 export const getBanners = () => (dispatch) => dispatch({ type: GET_BANNERS })
 export const getCollections = () => (dispatch) => dispatch({ type: GET_COLLECTIONS })
-export const getMen = () => (dispatch) => dispatch({ type: GET_MEN })
-export const getWomen = () => (dispatch) => dispatch({ type: GET_WOMEN })
 export const getFiltered = () => (dispatch) => dispatch({ type: GET_FILTERED })
 export const getPreview = () => (dispatch) => dispatch({ type: GET_PREVIEW })
 export const getReview = () => (dispatch) => dispatch({ type: GET_REVIEW })
 
-export const mapStateToProps = () => {
-    return {
-        women: defaultState.women,
-        men: defaultState.men,
-        banners: defaultState.banners,
-        collections: defaultState.collections,
-        filtered: defaultState.filtered,
-        preview: defaultState.preview,
-        payments: defaultState.payments,
-        reviews: defaultState.reviews
-    }
-}
-
-export const mapDispatchToProps = () => {
-    return {}
-}
+export default MainReducer

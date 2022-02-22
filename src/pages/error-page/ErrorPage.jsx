@@ -9,7 +9,7 @@ const ErrorPage = () => {
             <Header />
             <main>
                 <div className="error__page">
-                    <p>Error 404</p>
+                    <h2>Error 404</h2>
                     <p>Page not found</p>
                 </div>
             </main>

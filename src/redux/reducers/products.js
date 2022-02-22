@@ -1,4 +1,4 @@
-export const PRODUCTS = {
+export const Products = {
   men: [
     {
       particulars: {
@@ -1311,4 +1311,4 @@ export const PRODUCTS = {
       id: '620126dda5293589353a9c7a',
     },
   ],
-};
+}

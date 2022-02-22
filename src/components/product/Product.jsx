@@ -3,14 +3,13 @@ import './Product.css'
 
 import { ButtonDark } from '../buttonDark/ButtonDark'
 import { connect } from 'react-redux'
-import { mapStateToProps } from '../../redux/reducers/mainReducer'
 import Review from '../review/Review'
 import review from '../../assets/static/review.svg'
 import ProductPics from './productPics/ProductPics'
 import ProductChoice from './productChoice/ProductChoice'
 import { Fragment } from 'react'
 
-const Product = ({ products, preview, payments, reviews, productType }) => {
+const Product = ({ products, preview, payments, reviews, category }) => {
 
 
     let [previewBig] = preview
@@ -21,7 +20,7 @@ const Product = ({ products, preview, payments, reviews, productType }) => {
         <Fragment>
             <ProductHeader
                 products={products}
-                productType={productType}
+                category={category}
             />
             <div className="product">
                 <div className="container">
@@ -98,6 +97,17 @@ const Product = ({ products, preview, payments, reviews, productType }) => {
             </div>
         </Fragment >
     )
+}
+
+const mapStateToProps = (state, { category }) => {
+    return {
+        preview: state.main.preview,
+        payments: state.main.payments,
+        reviews: state.main.reviews,
+        men: state.products.men,
+        women: state.products.women,
+        category: category
+    }
 }
 
 export default connect(mapStateToProps)(Product)

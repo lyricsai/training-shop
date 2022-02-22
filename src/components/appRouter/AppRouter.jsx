@@ -5,8 +5,8 @@ import { publicRoutes } from '../../utils/routes'
 const AppRouter = () => {
     return (
         <Routes>
-            {publicRoutes.map(({ path, Component, productType }) =>
-                <Route key={path} exact path={path} element={<Component productType={productType} />} />
+            {publicRoutes.map(({ path, Component, category }) =>
+                <Route key={path} exact path={path} element={<Component category={category} />} />
             )}
         </Routes>
     )

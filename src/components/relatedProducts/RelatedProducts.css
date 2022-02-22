@@ -24,6 +24,11 @@
     top: -40px;
     opacity: 0.6;
 }
-.related__top_btn span {
-    /* top: 40px; */
+
+.swiper-slide-next {
+    transform: initial;
+}
+.swiper-button-prev::after,
+.swiper-button-next::after {
+    font-size: 14px;
 }

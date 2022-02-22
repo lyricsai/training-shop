@@ -21,14 +21,16 @@ const Nav = () => {
 
     const [menuOpen, setMenuOpen] = useState(false)
     const toggleMenu = () => { setMenuOpen(!menuOpen) }
+    const hide = () => { setMenuOpen(false) }
+    const show = () => { setMenuOpen(true) }
 
     return (
         <>
-            <div className="container" onClick={toggleMenu}>
+            <div className="container" onBlur={hide}>
                 <nav>
                     <Link to="/" className='header-nav-logo' data-test-id='header-logo-link'>CleverShop</Link>
                     <ul className="menu" data-test-id='menu'>
-                        <MenuLink menuItems={menuItems} />
+                        <MenuLink menuItems={menuItems} show={show} />
                     </ul>
                     <Actions />
                     <Burger toggleMenu={toggleMenu} isOpen={menuOpen} />

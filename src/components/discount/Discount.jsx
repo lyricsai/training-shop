@@ -1,8 +1,8 @@
 import { Fragment } from 'react'
 import './Discount.css'
 
-export const Discount = ({ discount, discountPrice }) => {
+export const Discount = ({ discount }) => {
     return (<Fragment>
-        { discount && (<span className='discount'>-{discountPrice}%</span>)}
+        { discount && (<span className='discount'>{discount}</span>)}
     </Fragment>)
 }

@@ -2,6 +2,7 @@
 import { combineReducers, createStore } from 'redux'
 // import { logger } from 'redux-logger'
 import mainReducer from './reducers/mainReducer'
+import productsReducer from './reducers/productsReducer'
 
 // const enhancers = compose(
 //     applyMiddleware(
@@ -19,10 +20,14 @@ import mainReducer from './reducers/mainReducer'
 //     enhancers
 // )
 
-const configureStore = (reducers = {}, preloadedState = {}) => createStore(combineReducers({
-    mainReducer,
-    ...reducers
-}),
+const rootReducers = combineReducers({
+
+    products: productsReducer,
+    main: mainReducer
+
+})
+
+const configureStore = (reducers = rootReducers, preloadedState = {}) => createStore(reducers,
     preloadedState)
 
 

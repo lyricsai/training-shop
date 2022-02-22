@@ -3,29 +3,35 @@ import { Discount } from '../discount/Discount'
 import Rating from '../rating/Rating'
 import './CardItem.css'
 
-const CardItem = ({ productType, item }) => {
+const CardItem = ({ item, related }) => {
+
+    let imageUrl = 'https://training.cleverland.by/shop'
+    if (related) imageUrl = ''
+    let { category, id, discount, images, material, brand, name, particulars, price, rating, reviews, sizes } = item
+
     return (
         <Link
-            to={`/${productType}/${item.id}`}
+            to={`/${category}/${id}`}
             className='cards-item'
-            data-test-id={`clothes-card-${productType}`}
+            data-test-id={`clothes-card-${category}`}
         >
             <div className='img__containter'>
-                <img src={item.src} alt="src" />
-                <Discount discount={item.discount} discountPrice={item.discountPrice} />
+                <img src={imageUrl + images[0]?.url} alt="src" />
+                <Discount discount={discount} />
             </div>
             <div className='product__info'>
-                <h5 className='product__title'>{item.title}</h5>
+                <h5 className='product__title'>{name}</h5>
                 <div className='product__info_bottom'>
                     <span>
-                        <span className='product__price'>${item.price}</span>
-                        {item.prevPrice ? <span className='product__prev_price'>${item.prevPrice}</span> : null}
+                        <span className='product__price'>${price}</span>
+                        {discount ? <span className='product__prev_price'>${Math.round(parseInt(price) * 100 / (100 + (parseInt(discount))))}</span> : null}
+                        {(discount && related) ? <span className='product__prev_price'>$60.00</span> : null}
                     </span>
-                    <span><Rating rating={item.rating} /></span>
+                    <span><Rating rating={rating} /></span>
                 </div>
             </div>
-
         </Link>
+        // <></>
     )
 }
 
