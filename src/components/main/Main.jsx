@@ -59,7 +59,5 @@ const mapStateToProps = (state, { page }) => {
     }
 }
 
-const mapDispatchToProps = () => {
-    return {}
-}
+
 export default connect(mapStateToProps)(Main)

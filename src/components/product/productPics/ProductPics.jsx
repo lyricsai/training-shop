@@ -10,7 +10,7 @@ import "swiper/css"
 const ProductPics = ({ previewBig, prevs }) => {
 
     const [thumbsSwiper, setThumbsSwiper] = useState(null)
-    const [swiper, updateSwiper] = useState(null)
+    // const [swiper, updateSwiper] = useState(null)
 
     const previewsBig = [previewBig, previewBig, previewBig, previewBig,]
 
@@ -23,7 +23,6 @@ const ProductPics = ({ previewBig, prevs }) => {
                 </div>
                 <ul className="product__pics_little">
                     <Swiper
-
                         watchSlidesProgress
                         onSwiper={setThumbsSwiper}
                         style={{
@@ -31,7 +30,6 @@ const ProductPics = ({ previewBig, prevs }) => {
                         }}
                         // grid={{ rows: 2, fill: 'row' }}
                         spaceBetween={0}
-                        // slidesPerView={1}
                         grabCursor={true}
                         navigation={{
                             nextEl: '.product__pics_controls .swiper-button-next',
@@ -41,7 +39,6 @@ const ProductPics = ({ previewBig, prevs }) => {
                         modules={[Navigation, Grid, Thumbs, Controller]}
                         slideToClickedSlide={true}
                         slidesPerView="auto"
-                        spaceBetween={10}
 
                     >
                         {prevs.map(item =>

@@ -9,6 +9,11 @@ const CardItem = ({ item, related }) => {
     if (related) imageUrl = ''
     let { category, id, discount, images, material, brand, name, particulars, price, rating, reviews, sizes } = item
 
+    console.log(material)
+    console.log(brand)
+    console.log(particulars)
+    console.log(reviews)
+    console.log(sizes)
     return (
         <Link
             to={`/${category}/${id}`}

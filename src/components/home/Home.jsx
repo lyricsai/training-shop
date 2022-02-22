@@ -1,6 +1,4 @@
 import './Home.css'
-import { connect } from 'react-redux'
-
 import Banners from "./banners/Banners"
 import Policies from "./policies/Policies"
 import Clothes from '../clothes/Clothes'
