@@ -10,7 +10,8 @@
 }
 
 .product__second_part {
-    margin-left: 30px;
+    padding-left: 30px;
+    max-width: 512px;
 }
 .product__description {
     border-bottom: 2px solid #e5e5e5;
@@ -49,7 +50,6 @@
 .product__cart_policy {
     justify-content: space-between;
     display: flex;
-    width: 522px;
     margin: 32px 0 0 0;
     opacity: 0.6;
 }
@@ -88,9 +88,10 @@
 .product__payments {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     border-bottom: 2px solid #e5e5e5;
     padding-bottom: 32px;
+    flex-wrap: wrap;
 }
 .product__additional {
     border-bottom: 2px solid #e5e5e5;
@@ -142,15 +143,13 @@
 .reviews__add {
     opacity: 0.6;
 }
-@media (max-width: 1049px) {
+@media (max-width: 1090px) {
     .product .container {
         flex-direction: column;
         align-items: center;
         padding: 0 15px;
     }
-    .product__related .cards-item img {
-        width: 90%;
-    }
+
     .product__second_part {
         display: flex;
         flex-direction: column;

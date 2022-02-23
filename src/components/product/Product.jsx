@@ -68,34 +68,49 @@ const Product = ({ product, preview, payments }) => {
                             <p>Size: <span>{sizes.join(' , ')}</span></p>
                             <p>Material: <span>{material}</span></p>
                         </div>
-
                         <div className="product__reviews">
-                            <h5>Reviews</h5>
-                            <div className="reviews__rating">
-                                <div>
-                                    <span className="stars">
-                                        <i className="icon-star rating__star "></i>
-                                        <i className="icon-star rating__star "></i>
-                                        <i className="icon-star rating__star "></i>
-                                        <i className="icon-star rating__star "></i>
-                                        <i className="icon-star rating__star "></i>
-                                    </span>
-                                    <span className="reviews__counts"><span> {product.reviews.length} </span>Reviews</span>
-                                </div>
-                                <div className="reviews__add">
-                                    <i ><img src={review} alt="review" />Write a review</i>
-                                </div>
-                            </div>
-                            <ul>
-                                {product.reviews.map(({ id, name, text, time, rating }) =>
-                                    <li key={id}>
-                                        <Review name={name} review={text} time={time} rating={rating} />
-                                    </li>)}
-                            </ul>
+                            <details open className='reviews__details'>
+                                <summary><h5>Reviews</h5>
+                                    <div className="reviews__rating">
+                                        <div>
+                                            <span className="stars">
+                                                <i className="icon-star rating__star "></i>
+                                                <i className="icon-star rating__star "></i>
+                                                <i className="icon-star rating__star "></i>
+                                                <i className="icon-star rating__star "></i>
+                                                <i className="icon-star rating__star "></i>
+                                            </span>
+                                            <span className="reviews__counts"><span> {product.reviews.length} </span>Reviews</span>
+                                        </div>
+                                        <div className="reviews__add">
+                                            <i ><img src={review} alt="review" />Write a review</i>
+                                        </div>
+                                    </div>
+                                </summary>
+                                <ul>
+                                    {product.reviews.map(({ id, name, text, time, rating }) =>
+                                        <li key={id} >
+                                            <Review name={name} review={text} time={time} rating={rating} />
+                                        </li>)}
+                                </ul>
+                            </details>
+
                         </div>
                     </div>
                 </div>
             </div>
+            <style jsx='true'>
+                {`
+                ::-webkit-details-marker {visibility: hidden;}
+                    details::marker{
+                    visibility: hidden;
+                    }
+                    .reviews__details summary{ 
+                    display:flex; flex-direction:column;
+                justify-content: space-between;
+                }
+                `}
+            </style>
         </Fragment >
     )
 }

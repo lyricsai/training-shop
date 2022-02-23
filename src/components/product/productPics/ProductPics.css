@@ -1,8 +1,9 @@
 .product__pics {
     display: flex;
     justify-content: center;
-    width: 100%;
     height: 100%;
+    width: 100%;
+    max-width: 560px;
 }
 
 .product__pics_controls {

@@ -18,5 +18,11 @@
 @media (max-width: 790px) {
     .main__banners .container {
         grid-template-columns: repeat(2, 36vw);
+        grid-template-rows: repeat(5, 12.2vh);
+    }
+}
+@media (max-width: 660px) {
+    .main__banners .container {
+        grid-template-rows: repeat(3, 12.2vh);
     }
 }
