@@ -12,13 +12,13 @@
 @media (max-width: 1100px) {
     .main__banners .container {
         grid-template-columns: 48vw 24vw;
-        grid-template-rows: repeat(3, 12.2vh);
+        grid-template-rows: repeat(5, 6.2vh);
     }
 }
 @media (max-width: 790px) {
     .main__banners .container {
         grid-template-columns: repeat(2, 36vw);
-        grid-template-rows: repeat(5, 12.2vh);
+        /* grid-template-rows: repeat(5, 12.2vh); */
     }
 }
 @media (max-width: 660px) {

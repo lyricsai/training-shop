@@ -32,4 +32,15 @@
     .main__category {
         overflow: hidden;
     }
+    .main__category {
+        grid-row: 2 span;
+    }
+    .main__category:last-child {
+        grid-row: initial;
+    }
+}
+@media (max-width: 790px) {
+    .main__category {
+        grid-row: 1 span;
+    }
 }
