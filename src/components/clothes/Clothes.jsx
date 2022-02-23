@@ -4,11 +4,11 @@ import CardItem from '../cardItem/CardItem'
 import { ClothesHeader } from '../clothes-header/ClothesHeader'
 import './Clothes.css'
 import loading from '../../assets/static/Square-Loading.gif'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { Grid, Navigation } from "swiper"
-import "swiper/css/grid"
+import PropTypes from 'prop-types'
 
 const Clothes = ({ category, products }) => {
+    let filtering = products
+    filtering.length = 8
 
     const url = useLocation().pathname
     let elem = null
@@ -28,28 +28,20 @@ const Clothes = ({ category, products }) => {
             {elem}
 
             <ul className='clothes__products'>
-                <Swiper
-                    modules={[Navigation, Grid]}
-                    spaceBetween={30}
-                    slidesPerView={4}
-                    grid={{ rows: 2, fill: 'rows' }}
-                    grabCursor={true}
-                    navigation={{
-                        nextEl: '.arrow-right',
-                        prevEl: '.arroe-left',
-                    }}
-                >
-                    {products.map(item => (<SwiperSlide key={`${item.id}-${item.category}`}>
-                        <li
-                            key={`${item.id}-${item.category}`}
-                        >
-                            <CardItem
-                                key={`${item.id}-${item.category}`}
-                                item={item}
-                            />
-                        </li></SwiperSlide>))}
 
-                </Swiper>
+                {filtering.map(item => (
+
+                    <li
+                        key={`${item.id}-${item.category}`}
+                    >
+                        <CardItem
+                            key={`${item.id}-${item.category}`}
+                            item={item}
+                        />
+                    </li>
+
+                ))}
+
             </ul>
 
             {loader}
@@ -57,5 +49,11 @@ const Clothes = ({ category, products }) => {
         </section></div>
     )
 }
+
+Clothes.propTypes = {
+    category: PropTypes.string,
+    products: PropTypes.array
+}
+
 
 export default Clothes

@@ -2,10 +2,8 @@ import './ProductHeader.css'
 import Rating from '../rating/Rating'
 import { Link } from 'react-router-dom'
 
-
-const ProductHeader = ({ products }) => {
-
-    let { available, name, category, quantity } = products[2]
+const ProductHeader = ({ product, category }) => {
+    let { available = 'in stock', name, quantity = 777 } = product
 
     return (
         <div className='product__header'>
@@ -27,7 +25,7 @@ const ProductHeader = ({ products }) => {
                 <div className='product__bottomBar'>
                     <div>
                         <div className="stars"><Rating /></div>
-                        <div className="reviews__count">2 reviews</div>
+                        <div className="reviews__count">{product.reviews.length} reviews</div>
                     </div>
                     <div>
                         <div className="SKU_count">SKU: <strong>{quantity}</strong>

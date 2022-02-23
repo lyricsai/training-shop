@@ -8,7 +8,7 @@ import 'swiper/css/navigation'
 let slides = [slider, slider, slider]
 
 const MainSlider = () => {
-    return (<div className="main__slider">
+    return (<div className="main__slider" data-test-id='main-slider'>
         <Swiper
             modules={[Navigation]}
             spaceBetween={50}

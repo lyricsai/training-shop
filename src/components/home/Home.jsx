@@ -3,9 +3,10 @@ import Banners from "./banners/Banners"
 import Policies from "./policies/Policies"
 import Clothes from '../clothes/Clothes'
 import Collection from '../collections/Collection'
-
 import Offer from '../offer/Offer'
 import Blog from '../blog/Blog'
+import PropTypes from 'prop-types'
+
 
 const Home = ({ women, men, banners, collections }) => {
 
@@ -23,6 +24,13 @@ const Home = ({ women, men, banners, collections }) => {
             <Blog />
         </div>
     )
+}
+
+Home.propTypes = {
+    women: PropTypes.array,
+    men: PropTypes.array,
+    banners: PropTypes.array,
+    collections: PropTypes.array,
 }
 
 export default Home

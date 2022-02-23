@@ -17,6 +17,7 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    max-width: 255px;
 }
 .img__containter {
     position: relative;
@@ -49,8 +50,4 @@
     }
 } */
 @media (max-width: 1049px) {
-    .clothes__products .cards-item:nth-child(7),
-    .clothes__products .cards-item:nth-child(8) {
-        background-color: yellow;
-    }
 }

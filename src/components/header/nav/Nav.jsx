@@ -29,7 +29,7 @@ const Nav = () => {
             <div className="container" onBlur={hide}>
                 <nav>
                     <Link to="/" className='header-nav-logo' data-test-id='header-logo-link'>CleverShop</Link>
-                    <ul className="menu" data-test-id='menu'>
+                    <ul className="menu" data-test-id='burger-menu'>
                         <MenuLink menuItems={menuItems} show={show} />
                     </ul>
                     <Actions />

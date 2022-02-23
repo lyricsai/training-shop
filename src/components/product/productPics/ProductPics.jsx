@@ -1,48 +1,53 @@
 import { useState } from "react"
-import { Navigation, Grid, Thumbs, FreeMode, Controller } from 'swiper'
+import { Navigation, FreeMode, Controller } from 'swiper'
 import { SwiperSlide, Swiper } from 'swiper/react'
 import { SlideNextButton, SlidePrevButton } from '../../sliderButtons/SliderButtons'
 import './ProductPics.css'
 import "swiper/css/thumbs"
 import "swiper/css/navigation"
 import "swiper/css"
+import PropTypes from 'prop-types'
 
 const ProductPics = ({ previewBig, prevs }) => {
 
-    const [thumbsSwiper, setThumbsSwiper] = useState(null)
-    // const [swiper, updateSwiper] = useState(null)
+    const [firstSwiper, setFirstSwiper] = useState(null);
+    const [secondSwiper, setSecondSwiper] = useState(null);
 
     const previewsBig = [previewBig, previewBig, previewBig, previewBig,]
+    let imageUrl = 'https://training.cleverland.by/shop'
 
     return (<>
-        <div className="product__pics">
+        <div className="product__pics" data-test-id='product-slider'>
             <div className="product__pics_previews">
                 <div className="product__pics_controls">
-                    <SlidePrevButton prev={''} />
-                    <SlideNextButton next={''} />
+                    <SlidePrevButton _class='product__pics_controls' />
+                    <SlideNextButton _class='product__pics_controls' />
                 </div>
                 <ul className="product__pics_little">
                     <Swiper
                         watchSlidesProgress
-                        onSwiper={setThumbsSwiper}
+                        onSwiper={setFirstSwiper}
+                        controller={{ control: secondSwiper }}
                         style={{
-                            "--swiper-navigation-color": "#fff", width: "100px"
+                            "--swiper-navigation-color": "#121212",
+                            transform: "translate3d(0, 0, 0) !important"
                         }}
-                        // grid={{ rows: 2, fill: 'row' }}
-                        spaceBetween={0}
+                        spaceBetween={10}
                         grabCursor={true}
                         navigation={{
-                            nextEl: '.product__pics_controls .swiper-button-next',
-                            prevEl: '.product__pics_controls .swiper-button-prev',
+                            nextEl: '.product__pics_controls.swiper-button-next',
+                            prevEl: '.product__pics_controls.swiper-button-prev',
                         }}
-                        thumbs={{ swiper: thumbsSwiper }}
-                        modules={[Navigation, Grid, Thumbs, Controller]}
+                        virtualTranslate={true}
+                        centeredSlides={true}
+                        modules={[Navigation, Controller]}
                         slideToClickedSlide={true}
-                        slidesPerView="auto"
-
+                        slidesPerView={4}
+                        direction={'vertical'}
+                        watchOverflow={true}
                     >
-                        {prevs.map(item =>
-                            <SwiperSlide key={item.id + 'preview'}>
+                        {prevs.map((item, index) =>
+                            <SwiperSlide key={index + 'preview'} >
                                 <li >
                                     <img src={item.src} alt="prev" />
                                 </li>
@@ -54,42 +59,34 @@ const ProductPics = ({ previewBig, prevs }) => {
             <ul className="product__pics_big">
                 <Swiper
                     style={{
-                        "--swiper-navigation-color": "#000",
+                        "--swiper-navigation-color": "#000"
                     }}
+                    onSwiper={setSecondSwiper}
+                    controller={{ control: firstSwiper }}
                     watchSlidesProgress
                     spaceBetween={10}
                     navigation
-                    // thumbs={{ swiper: thumbsSwiper }}
-                    modules={[FreeMode, Navigation]}
+                    modules={[FreeMode, Navigation, Controller]}
                     grabCursor={true}
                     className="mySwiper2"
                 >
-                    {previewsBig.map(item =>
-                        <SwiperSlide key={item.id}>
+                    {previewsBig.map((item, index) =>
+                        <SwiperSlide key={index + 'big'}>
                             <li >
-                                <img src={item.src} alt="prev" />
+                                <img src={imageUrl + item} alt="prev" />
                             </li>
                         </SwiperSlide>
                     )}
                 </Swiper>
             </ul>
         </div>
-        <style jsx='true'>{`
-    .product__pics_little .swiper-wrapper 
-        { display: grid;
-        grid-template-columns: 94px;
-        grid-template-rows: repeat(4, 1fr);
-        grid-auto-flow: column;
-        margin-top:-20px;
-        }
-    .product__pics_little .swiper-wrapper  > .swiper-slide {
-        height: fit-content;
-        padding:8px 16px 8px 0;
-        }
-        `}
-        </style>
     </>
     )
+}
+
+ProductPics.propTypes = {
+    prevs: PropTypes.array,
+    previewBig: PropTypes.string
 }
 
 export default ProductPics

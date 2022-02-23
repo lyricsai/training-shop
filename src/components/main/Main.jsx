@@ -6,21 +6,35 @@ import RelatedProducts from '../relatedProducts/RelatedProducts'
 import './Main.css'
 import { connect } from 'react-redux'
 import { useLocation } from 'react-router'
+import PropTypes from 'prop-types'
 
-const Main = (
-    { page, banners, filtered, related, preview, men, women, collections }
-) => {
+const Main = ({
+    page,
+    banners,
+    filtered,
+    preview,
+    men,
+    women,
+    collections,
+    payments }) => {
 
-
-    const url = useLocation().pathname
+    let url = useLocation().pathname.split('/')[1]
     let products = {}
     let category
-    url === '/women' ? category = 'women' : category = 'men'
+    if (url === 'women') category = 'women'
+    else if (url === 'men') category = 'men'
     category === 'women' ? products = women : products = men
+    let i = 0
+    let product = products[i]
+
 
     if (page === 'home') return (
         <main>
-            <Home men={men} women={women} banners={banners} collections={collections} />
+            <Home
+                men={men}
+                women={women}
+                banners={banners}
+                collections={collections} />
         </main>)
 
     else if (page === 'product') return (
@@ -28,7 +42,9 @@ const Main = (
             <Product
                 category={category}
                 products={products}
+                product={product}
                 preview={preview}
+                payments={payments}
             />
             <RelatedProducts related={filtered} category={category} />
         </main>)
@@ -42,7 +58,6 @@ const Main = (
             />
         </main>
     )
-
 }
 
 const mapStateToProps = (state, { page }) => {
@@ -59,5 +74,15 @@ const mapStateToProps = (state, { page }) => {
     }
 }
 
-
+Main.propTypes = {
+    banners: PropTypes.array,
+    collections: PropTypes.array,
+    filtered: PropTypes.array,
+    preview: PropTypes.array,
+    reviews: PropTypes.array,
+    payments: PropTypes.array,
+    men: PropTypes.array,
+    women: PropTypes.array,
+    page: PropTypes.string,
+}
 export default connect(mapStateToProps)(Main)

@@ -1,43 +1,41 @@
 import ProductHeader from '../product-header/ProductHeader'
 import './Product.css'
-
+import PropTypes from 'prop-types'
 import { ButtonDark } from '../buttonDark/ButtonDark'
-import { connect } from 'react-redux'
 import Review from '../review/Review'
 import review from '../../assets/static/review.svg'
 import ProductPics from './productPics/ProductPics'
 import ProductChoice from './productChoice/ProductChoice'
 import { Fragment } from 'react'
 
-const Product = ({ products, preview, payments, reviews, category }) => {
 
+const Product = ({ product, preview, payments }) => {
 
-    let [previewBig] = preview
+    let { category, images, price, material, sizes } = product
+
     let prevs = preview.slice(1, 5)
     let colors = preview.slice(5, 9)
 
     return (
         <Fragment>
             <ProductHeader
-                products={products}
+                product={product}
                 category={category}
             />
             <div className="product">
                 <div className="container">
                     <ProductPics
-                        previewBig={previewBig}
+                        previewBig={images[0].url}
                         prevs={prevs}
                     />
                     <div className="product__second_part">
-
-                        <ProductChoice colors={colors} />
+                        <ProductChoice colors={colors} color={images[0].color} sizes={sizes} />
                         <div className="product__add_cart">
-                            <span className="product__page_price">$ 379.99</span>
+                            <span className="product__page_price">$ {price}</span>
                             <ButtonDark text={'Add to Card'} padding={'17px 24px 16px'} />
                             <div className="icon__container"><i className="icon-fav"></i></div>
                             <div className="icon__container"><i className="icon-scale-def"></i></div>
                         </div>
-
                         <div className="product__cart_policy">
                             <div className="cart__policy">
                                 <div className="cart__policy_icon"><i className='icon-delivery'></i></div>
@@ -66,9 +64,9 @@ const Product = ({ products, preview, payments, reviews, category }) => {
 
                         <div className="product__additional">
                             <h5>Additional Information</h5>
-                            <p>Color: <span>Blue, White, Black, Grey</span></p>
-                            <p>Size: <span>XS, S, M, L</span></p>
-                            <p>Material: <span>	100% Polyester</span></p>
+                            <p>Color: <span>{images[0].color}</span></p>
+                            <p>Size: <span>{sizes.join(' , ')}</span></p>
+                            <p>Material: <span>{material}</span></p>
                         </div>
 
                         <div className="product__reviews">
@@ -82,14 +80,17 @@ const Product = ({ products, preview, payments, reviews, category }) => {
                                         <i className="icon-star rating__star "></i>
                                         <i className="icon-star rating__star "></i>
                                     </span>
-                                    <span className="reviews__counts"><span> 2 </span>Reviews</span>
+                                    <span className="reviews__counts"><span> {product.reviews.length} </span>Reviews</span>
                                 </div>
                                 <div className="reviews__add">
                                     <i ><img src={review} alt="review" />Write a review</i>
                                 </div>
                             </div>
                             <ul>
-                                {reviews.map(({ id, name, review, time, rating }) => <li key={id}><Review name={name} review={review} time={time} rating={rating} /></li>)}
+                                {product.reviews.map(({ id, name, text, time, rating }) =>
+                                    <li key={id}>
+                                        <Review name={name} review={text} time={time} rating={rating} />
+                                    </li>)}
                             </ul>
                         </div>
                     </div>
@@ -99,15 +100,9 @@ const Product = ({ products, preview, payments, reviews, category }) => {
     )
 }
 
-const mapStateToProps = (state, { category }) => {
-    return {
-        preview: state.main.preview,
-        payments: state.main.payments,
-        reviews: state.main.reviews,
-        men: state.products.men,
-        women: state.products.women,
-        category: category
-    }
+Product.propTypes = {
+    preview: PropTypes.array,
+    product: PropTypes.object,
+    payments: PropTypes.array,
 }
-
-export default connect(mapStateToProps)(Product)
+export default Product

@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom'
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 
 import './MenuLink.css'
 
@@ -22,6 +22,11 @@ const MenuLink = ({ menuItems, show, hide }) => {
             </li>
         )
     )
+}
+MenuLink.propTypes = {
+    menuItems: PropTypes.array,
+    show: PropTypes.func,
+    hide: PropTypes.func,
 }
 
 export default MenuLink

@@ -2,18 +2,17 @@ import { Link } from 'react-router-dom'
 import { Discount } from '../discount/Discount'
 import Rating from '../rating/Rating'
 import './CardItem.css'
+import PropTypes from 'prop-types'
 
-const CardItem = ({ item, related }) => {
+const CardItem = ({ item, relatedString }) => {
 
     let imageUrl = 'https://training.cleverland.by/shop'
-    if (related) imageUrl = ''
-    let { category, id, discount, images, material, brand, name, particulars, price, rating, reviews, sizes } = item
+    let { category, id, discount, images, name, price, rating } = item
 
-    console.log(material)
-    console.log(brand)
-    console.log(particulars)
-    console.log(reviews)
-    console.log(sizes)
+    if (relatedString) {
+        imageUrl = ''
+        category = 'women'
+    }
     return (
         <Link
             to={`/${category}/${id}`}
@@ -29,8 +28,10 @@ const CardItem = ({ item, related }) => {
                 <div className='product__info_bottom'>
                     <span>
                         <span className='product__price'>${price}</span>
-                        {discount ? <span className='product__prev_price'>${Math.round(parseInt(price) * 100 / (100 + (parseInt(discount))))}</span> : null}
-                        {(discount && related) ? <span className='product__prev_price'>$60.00</span> : null}
+                        {discount
+                            ? <span className='product__prev_price'>${Math.round(parseInt(price) * 100 / (100 + (parseInt(discount))))}</span>
+                            : null}
+                        {(discount && relatedString) ? <span className='product__prev_price'>$60.00</span> : null}
                     </span>
                     <span><Rating rating={rating} /></span>
                 </div>
@@ -38,6 +39,10 @@ const CardItem = ({ item, related }) => {
         </Link>
         // <></>
     )
+}
+CardItem.propTypes = {
+    relatedString: PropTypes.string,
+    item: PropTypes.object
 }
 
 export default CardItem

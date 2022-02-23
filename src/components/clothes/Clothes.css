@@ -24,9 +24,12 @@
     display: flex;
 }
 .clothes .swiper-slide {
-    width: auto;
-    flex-shrink: 0;
-    display: block;
-    height: 378px;
-    max-height: 100%;
+    /* max-width: 255px; */
+    flex: 0 1 255px;
+    min-height: 378px;
+    max-height: 394px;
+}
+.clothes .img__containter img {
+    width: 100%;
+    object-fit: cover;
 }

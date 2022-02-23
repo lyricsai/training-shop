@@ -7,7 +7,7 @@ const Burger = ({ toggleMenu, isOpen }) => {
 
     return (
         <>
-            <button type="button" className={`menu__icon ${toggle} icon-menu`} onClick={toggleMenu}>
+            <button data-test-id='burger-menu-btn' type="button" className={`menu__icon ${toggle} icon-menu`} onClick={toggleMenu}>
                 <span ></span>
                 <span></span>
                 <span ></span>

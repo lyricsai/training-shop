@@ -1,38 +1,44 @@
-import './SliderButtons.css'
-import { useSwiper } from 'swiper/react'
+import { React } from 'react'
 import "swiper/css/thumbs"
 import "swiper/css/navigation"
 import "swiper/css"
+import PropTypes from 'prop-types'
 
-export const SlideNextButton = (next) => {
-    const swiper = useSwiper();
+export const SlideNextButton = ({ next, _class }) => {
+    if (!_class) _class = ''
 
     return (
         <button
-            className="swiper-button-next"
+            className={`swiper-button-next ${_class}`}
             style={{
                 next,
                 color: '#121212',
                 opacity: 0.6
             }}
-            onClick={() => swiper.slideNext(300)}
         ></button>
     );
 }
 
-export const SlidePrevButton = (prev) => {
+export const SlidePrevButton = ({ prev, _class }) => {
 
-    const swiper = useSwiper();
-
+    if (!_class) _class = ''
     return (
         <button
-            className="swiper-button-prev"
+            className={`swiper-button-prev ${_class}`}
             style={{
                 prev,
                 color: '#121212',
                 opacity: 0.6
             }}
-            onClick={() => swiper.slidePrev(300)}
         ></button >
     );
+}
+
+SlidePrevButton.propTypes = {
+    _class: PropTypes.string,
+    prev: PropTypes.string
+}
+SlideNextButton.propTypes = {
+    _class: PropTypes.string,
+    next: PropTypes.string
 }
