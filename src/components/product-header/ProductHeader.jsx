@@ -24,7 +24,7 @@ const ProductHeader = ({ product, category }) => {
                 <h1 className='product__title'>{name}</h1>
                 <div className='product__bottomBar'>
                     <div>
-                        <div className="stars"><Rating /></div>
+                        <div className="stars"><Rating rating={product.rating} /></div>
                         <div className="reviews__count">{product.reviews.length} reviews</div>
                     </div>
                     <div>

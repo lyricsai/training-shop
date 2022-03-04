@@ -155,7 +155,14 @@
         flex-direction: column;
         align-items: center;
         margin-top: 16px;
+        padding-left: 0;
     }
+    .product__second_part > div {
+        width: 100%;
+    }
+}
+.reviews__top_flex {
+    display: flex;
 }
 @media (max-width: 600px) {
     .product .container {

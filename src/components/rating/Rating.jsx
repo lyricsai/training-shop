@@ -1,46 +1,24 @@
 import './Rating.css'
 
-const Rating = () => {
+const Rating = ({ rating }) => {
 
-    // const ratingStars = [...document.getElementsByClassName("rating__star")];
-    // const ratingResult = document.querySelector(".rating__result");
+    const starMinusStyle = { color: '#e6e6e6' }
+    const starPlus = <i className="rating__star icon-star"></i>
+    const starMinus = <i className="icon-star" style={starMinusStyle}></i>
 
-    // printRatingResult(ratingResult);
+    let rendering = []
 
-    // function executeRating(stars, result) {
-    //     const starClassActive = "rating__star icon-star";
-    //     const starClassUnactive = "rating__star icon-star";
-    //     const starsLength = stars.length;
-    //     let i;
-    //     stars.map((star) => {
-    //         star.onclick = () => {
-    //             i = stars.indexOf(star);
+    for (let i = 1; i <= rating; i++) {
+        rendering.push(starPlus)
+    }
 
-    //             if (star.className.indexOf(starClassUnactive) !== -1) {
-    //                 printRatingResult(result, i + 1);
-    //                 for (i; i >= 0; --i) stars[i].className = starClassActive;
-    //             } else {
-    //                 printRatingResult(result, i);
-    //                 for (i; i < starsLength; ++i) stars[i].className = starClassUnactive;
-    //             }
-    //         };
-    //     });
-    // }
-
-    // function printRatingResult(result, num = 0) {
-    //     result.textContent = `${num}/5`;
-    // }
-
-    // executeRating(ratingStars, ratingResult);
-
+    for (let i = 1; i <= 5 - rating; i++) {
+        rendering.push(starMinus)
+    }
     return (
         <div className='rating'>
             <span className="rating__result"></span>
-            <i className="rating__star icon-star"></i>
-            <i className="rating__star icon-star"></i>
-            <i className="rating__star icon-star"></i>
-            <i className="rating__star icon-star"></i>
-            <i className="rating__star icon-star"></i>
+            {rendering}
         </div>
     )
 }

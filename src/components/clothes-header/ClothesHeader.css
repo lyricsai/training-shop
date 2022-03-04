@@ -24,13 +24,17 @@
     letter-spacing: 0.06em;
     text-transform: uppercase;
 }
+.clothes__header ul li {
+}
 .clothes__header ._active {
     font-weight: 500;
     opacity: 1;
 }
+
 @media screen and (max-width: 870px) {
-    .clothes__cats_item a {
-        display: none;
+    .clothes__header ul {
+        display: flex;
+        flex-direction: column;
     }
     .clothes__cats_item a._active {
         display: block;

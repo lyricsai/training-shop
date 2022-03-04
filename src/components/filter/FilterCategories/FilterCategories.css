@@ -1,0 +1,30 @@
+.filter__categories {
+    width: 100%;
+    min-height: 300px;
+    background-color: #f8f8f8;
+}
+.filter__categories .container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1026px;
+    margin: 0 auto;
+    height: 100%;
+}
+.filter__categories section {
+    max-width: 234px;
+    width: 100%;
+    margin: 15px;
+}
+.filter__categories h2 {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 22px;
+    letter-spacing: 0.06em;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.clothes .custom__select {
+    display: flex;
+}

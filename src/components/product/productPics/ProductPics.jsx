@@ -8,12 +8,12 @@ import "swiper/css/navigation"
 import "swiper/css"
 import PropTypes from 'prop-types'
 
-const ProductPics = ({ previewBig, prevs }) => {
+const ProductPics = ({ prevs }) => {
 
     const [firstSwiper, setFirstSwiper] = useState(null);
     const [secondSwiper, setSecondSwiper] = useState(null);
 
-    const previewsBig = [previewBig, previewBig, previewBig, previewBig,]
+    const previewsBig = prevs
     let imageUrl = 'https://training.cleverland.by/shop'
 
     return (<>
@@ -49,7 +49,7 @@ const ProductPics = ({ previewBig, prevs }) => {
                         {prevs.map((item, index) =>
                             <SwiperSlide key={index + 'preview'} >
                                 <li >
-                                    <img src={item.src} alt="prev" />
+                                    <img src={imageUrl + item} alt="prev" />
                                 </li>
                             </SwiperSlide>
                         )}

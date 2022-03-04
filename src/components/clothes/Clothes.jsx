@@ -5,20 +5,43 @@ import { ClothesHeader } from '../clothes-header/ClothesHeader'
 import './Clothes.css'
 import loading from '../../assets/static/Square-Loading.gif'
 import PropTypes from 'prop-types'
+import { useState, useEffect } from 'react'
 
-const Clothes = ({ category, products }) => {
-    let filtering = products
-    filtering.length = 8
+
+const Clothes = ({ category, products, options }) => {
+
+    console.log('options', options)
+
+    let filtering = products.filter((product) => {
+        return product.particulars.isNewArrivals === true
+    })
+
+    const [activeProducts, setActiveProducts] = useState(filtering)
+
+
+    useEffect(() => {
+
+    }, [setActiveProducts])
 
     const url = useLocation().pathname
     let elem = null
     let loader
     let styles = { marginTop: 96 }
 
-    url === '/' ? elem = <ClothesHeader category={category} /> : styles = { marginTop: 0 }
+
+    url === '/'
+        ? elem = <ClothesHeader
+            category={category}
+            filtering={activeProducts}
+            options={options}
+        />
+        : styles = { marginTop: 0 }
+
+
     url === '/'
         ? loader = <ButtonLight text='See all' size={'100%'} />
         : loader = <div className='clothes__loader'><img src={loading} alt="loading..." /></div>
+
 
     return (<div className="container">
         <section className='clothes'
@@ -29,7 +52,7 @@ const Clothes = ({ category, products }) => {
 
             <ul className='clothes__products'>
 
-                {filtering.map(item => (
+                {activeProducts.map(item => (
 
                     <li
                         key={`${item.id}-${item.category}`}
@@ -52,7 +75,8 @@ const Clothes = ({ category, products }) => {
 
 Clothes.propTypes = {
     category: PropTypes.string,
-    products: PropTypes.array
+    products: PropTypes.array,
+    options: PropTypes.array,
 }
 
 

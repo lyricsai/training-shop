@@ -10,6 +10,7 @@
 }
 .main__slider img {
     width: 100%;
+    position: absolute;
 }
 .campaignTeaser__slider {
     transform: translate(-50%, -50%);
@@ -57,20 +58,30 @@
     color: #121212;
     opacity: 0.6;
 }
+.main__slider .swiper {
+    height: 100%;
+}
 
 @media (max-width: 1100px) {
     .main__slider {
         grid-column: 1 / 2;
         grid-row: 1/5;
         max-width: initial;
+        /* height: 100%;
+        width: initial; */
     }
     .campaignTeaser__slider {
         width: 25vw;
-        top: 160px;
+        /* top: 50%; */
+        transform: translate(-50%);
     }
     .main__slider .swiper-button-prev,
     .main__slider .swiper-button-next {
-        top: 160px;
+    }
+
+    .main__slider img {
+        height: 100%;
+        width: initial;
     }
 }
 
@@ -80,12 +91,15 @@
         grid-row: 1/4;
     }
     .campaignTeaser__slider {
-        top: 45%;
+        /* top: 45%; */
         width: 40vw;
     }
-    .main__slider .swiper-button-prev,
-    .main__slider .swiper-button-next {
-        top: 200px;
+    .main__slider .swiper {
+        width: 100%;
+    }
+    .main__slider img {
+        height: initial;
+        width: 100%;
     }
 }
 @media (max-width: 660px) {

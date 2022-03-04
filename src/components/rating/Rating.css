@@ -19,6 +19,3 @@
 .rating__star:hover {
     filter: drop-shadow(1px 1px 4px gold);
 }
-.cards-item .rating__star:last-child {
-    color: #e5e5e5;
-}

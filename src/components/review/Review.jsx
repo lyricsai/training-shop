@@ -1,3 +1,4 @@
+import Rating from '../rating/Rating'
 import './Review.css'
 
 const Review = ({ name, review, time, rating }) => {
@@ -7,13 +8,7 @@ const Review = ({ name, review, time, rating }) => {
                 <span>
                     <span className="review__time">{time}</span>
 
-                    <span className="review__stars">
-                        <i className="icon-star rating__star "></i>
-                        <i className="icon-star rating__star "></i>
-                        <i className="icon-star rating__star "></i>
-                        <i className="icon-star rating__star "></i>
-                        <i className="icon-star rating__star "></i>
-                    </span>
+                    <Rating rating={rating} />
 
                 </span>
             </div>

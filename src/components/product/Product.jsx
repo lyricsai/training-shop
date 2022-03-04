@@ -7,14 +7,28 @@ import review from '../../assets/static/review.svg'
 import ProductPics from './productPics/ProductPics'
 import ProductChoice from './productChoice/ProductChoice'
 import { Fragment } from 'react'
+import Rating from '../rating/Rating'
 
 
-const Product = ({ product, preview, payments }) => {
+const Product = ({ product, payments }) => {
+    console.log(product)
 
-    let { category, images, price, material, sizes } = product
+    let { category, images, price, material, sizes, rating } = product
 
-    let prevs = preview.slice(1, 5)
-    let colors = preview.slice(5, 9)
+    let prevs = images.map((item) => {
+        return item.url
+    })
+
+    let color = [...new Set(images.map((item) => item.color))]
+
+    let colors = Object.values(images.reduce((acc, item) => {
+        return {
+            ...acc,
+            [item.color]: item.url,
+        }
+    }, {}))
+
+    console.log(colors)
 
     return (
         <Fragment>
@@ -25,11 +39,10 @@ const Product = ({ product, preview, payments }) => {
             <div className="product">
                 <div className="container">
                     <ProductPics
-                        previewBig={images[0].url}
                         prevs={prevs}
                     />
                     <div className="product__second_part">
-                        <ProductChoice colors={colors} color={images[0].color} sizes={sizes} />
+                        <ProductChoice colors={colors} color={color} sizes={sizes} />
                         <div className="product__add_cart">
                             <span className="product__page_price">$ {price}</span>
                             <ButtonDark text={'Add to Card'} padding={'17px 24px 16px'} />
@@ -64,29 +77,23 @@ const Product = ({ product, preview, payments }) => {
 
                         <div className="product__additional">
                             <h5>Additional Information</h5>
-                            <p>Color: <span>{images[0].color}</span></p>
+                            <p>Color: <span>{color.join(' , ')}</span></p>
                             <p>Size: <span>{sizes.join(' , ')}</span></p>
                             <p>Material: <span>{material}</span></p>
                         </div>
                         <div className="product__reviews">
                             <details open className='reviews__details'>
-                                <summary><h5>Reviews</h5>
-                                    <div className="reviews__rating">
-                                        <div>
-                                            <span className="stars">
-                                                <i className="icon-star rating__star "></i>
-                                                <i className="icon-star rating__star "></i>
-                                                <i className="icon-star rating__star "></i>
-                                                <i className="icon-star rating__star "></i>
-                                                <i className="icon-star rating__star "></i>
-                                            </span>
-                                            <span className="reviews__counts"><span> {product.reviews.length} </span>Reviews</span>
-                                        </div>
-                                        <div className="reviews__add">
-                                            <i ><img src={review} alt="review" />Write a review</i>
-                                        </div>
+                                <summary><h5>Reviews</h5> </summary>
+                                <div className="reviews__rating">
+                                    <div className='reviews__top_flex'>
+                                        <Rating rating={rating} />
+                                        <span className="reviews__counts"><span> {product.reviews.length} </span>Reviews</span>
                                     </div>
-                                </summary>
+                                    <div className="reviews__add">
+                                        <i ><img src={review} alt="review" />Write a review</i>
+                                    </div>
+                                </div>
+
                                 <ul>
                                     {product.reviews.map(({ id, name, text, time, rating }) =>
                                         <li key={id} >

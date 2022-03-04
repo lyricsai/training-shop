@@ -3,7 +3,7 @@ import './ProductsHeader.css'
 import Filter from '../filter/Filter'
 import { Link } from 'react-router-dom'
 
-const ProductsHeader = ({ title }) => {
+const ProductsHeader = ({ title, products, options }) => {
 
     return (
         <Fragment>
@@ -17,12 +17,16 @@ const ProductsHeader = ({ title }) => {
                         </div>
                         <div className="products__share">
                             <i className='icon-share'> </i>
-                            <span> Share</span>
+                            <span>Share</span>
                         </div>
                     </div>
                     <h1 className='products__title'>{title}</h1>
-                </div></div>
-            <Filter />
+                </div>
+            </div>
+            <Filter
+                products={products}
+                options={options}
+            />
         </Fragment>
     )
 }

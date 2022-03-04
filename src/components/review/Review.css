@@ -14,6 +14,9 @@
     opacity: 0.8;
     word-wrap: break-word;
 }
+.review p::first-letter {
+    text-transform: capitalize;
+}
 .review div {
     display: flex;
     align-items: center;
@@ -37,6 +40,6 @@
 .review__time {
     opacity: 0.4;
 }
-.review__stars {
+.reviews__rating .icon-star {
     font-size: 14px;
 }
