@@ -31,7 +31,19 @@
     opacity: 1;
 }
 
-@media screen and (max-width: 870px) {
+.clothes_filter__selection_header {
+    display: flex;
+}
+
+.clothes_filter__selection_header ul {
+    text-align: left;
+}
+
+.clothes .custom__select {
+    text-align: end;
+}
+
+@media screen and (max-width: 996px) {
     .clothes__header ul {
         display: flex;
         flex-direction: column;

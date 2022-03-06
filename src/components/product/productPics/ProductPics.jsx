@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { Navigation, FreeMode, Controller } from 'swiper'
 import { SwiperSlide, Swiper } from 'swiper/react'
-import { SlideNextButton, SlidePrevButton } from '../../sliderButtons/SliderButtons'
+import { SlideNextButton, SlidePrevButton } from '../../shared/sliderButtons/SliderButtons'
 import './ProductPics.css'
 import "swiper/css/thumbs"
 import "swiper/css/navigation"

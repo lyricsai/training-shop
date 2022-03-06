@@ -1,6 +1,6 @@
 import './AppRouter.css'
 import { Routes, Route } from 'react-router-dom'
-import { publicRoutes } from '../../utils/routes'
+import { publicRoutes } from '../../../utils/routes'
 
 const AppRouter = () => {
     return (

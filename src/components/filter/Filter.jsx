@@ -1,7 +1,6 @@
 import './Filter.css'
 import { useState, useEffect } from 'react'
 import FilterCategories from './FilterCategories/FilterCategories'
-// import { connect } from 'react-redux'
 
 
 const Filter = ({ products, options }) => {

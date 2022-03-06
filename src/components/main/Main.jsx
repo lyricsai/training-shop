@@ -7,6 +7,7 @@ import './Main.css'
 import { connect } from 'react-redux'
 import { useLocation } from 'react-router'
 import PropTypes from 'prop-types'
+import {useEffect,useState} from 'react'
 
 const Main = ({
     page,
@@ -18,19 +19,35 @@ const Main = ({
     collections,
     payments }) => {
 
-    console.log('options', options)
-
     let url = useLocation().pathname.split('/')[1]
 
     let products = {}
-    let category
-    if (url === 'women') category = 'women'
-    else if (url === 'men') category = 'men'
+
+    const [category,setCategory] = useState(`${url}`)
+    const [resourseType,setResourseType] = useState(products)
+    const [items,setItems] = useState([])
+
+    useEffect(()=>{
+
+    if (url === 'women'){ 
+        setCategory ('women')
+        setResourseType(women)
+    }
+    else if (url === 'men') {
+        setCategory  ('men')
+        setResourseType(men)
+    }
+    },[category])
+
+    useEffect(()=>{setItems()},[resourseType])
+
+
     category === 'women' ? products = women : products = men
 
     let i = useLocation().pathname.split('/')[2]
 
     let product = products.filter((item) => item.id === i)[0]
+
 
     if (page === 'home') return (
         <main>
@@ -38,7 +55,8 @@ const Main = ({
                 men={men}
                 women={women}
                 banners={banners}
-                collections={collections} />
+                collections={collections} 
+                options={options}/>
         </main>)
 
     else if (page === 'product') return (

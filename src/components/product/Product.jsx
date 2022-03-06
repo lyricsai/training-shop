@@ -1,13 +1,13 @@
-import ProductHeader from '../product-header/ProductHeader'
+import ProductHeader from './product-header/ProductHeader'
 import './Product.css'
 import PropTypes from 'prop-types'
-import { ButtonDark } from '../buttonDark/ButtonDark'
-import Review from '../review/Review'
+import { ButtonDark } from '../shared/buttonDark/ButtonDark'
+import Review from '../main/review/Review'
 import review from '../../assets/static/review.svg'
 import ProductPics from './productPics/ProductPics'
 import ProductChoice from './productChoice/ProductChoice'
 import { Fragment } from 'react'
-import Rating from '../rating/Rating'
+import Rating from '../main/rating/Rating'
 
 
 const Product = ({ product, payments }) => {

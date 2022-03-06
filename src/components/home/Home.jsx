@@ -2,20 +2,20 @@ import './Home.css'
 import Banners from "./banners/Banners"
 import Policies from "./policies/Policies"
 import Clothes from '../clothes/Clothes'
-import Collection from '../collections/Collection'
-import Offer from '../offer/Offer'
-import Blog from '../blog/Blog'
+import Collection from './collections/Collection'
+import Offer from './offer/Offer'
+import Blog from './blog/Blog'
 import PropTypes from 'prop-types'
 
 
-const Home = ({ women, men, banners, collections }) => {
+const Home = ({ women, men, banners, collections,options }) => {
 
     return (
         <div className='home'>
             <Banners banners={banners} />
             <Policies />
-            <Clothes products={women} category='women' />
-            <Clothes products={men} category='men' />
+            <Clothes products={women} category='women' options={options}/>
+            <Clothes products={men} category='men' options={options}/>
             <section className='collections'>
                 <Collection src={collections[0].src} title='new season' text='lookbook collection' />
                 <Collection src={collections[1].src} title='sale' text='get up to' accent='50% OFF' />
@@ -31,6 +31,7 @@ Home.propTypes = {
     men: PropTypes.array,
     banners: PropTypes.array,
     collections: PropTypes.array,
+    options: PropTypes.array,
 }
 
 export default Home

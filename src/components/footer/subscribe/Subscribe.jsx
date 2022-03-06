@@ -1,4 +1,4 @@
-import Form from "../../form/Form"
+import Form from "../../shared/form/Form"
 import SocialNetwork from "../../socialNetwork/SocialNetwork"
 
 import './Subscribe.css'

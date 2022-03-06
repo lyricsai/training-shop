@@ -4,7 +4,7 @@ import FilterCategory from './FilterCategory/FilterCategory'
 
 const FilterCategories = ({ products }) => {
 
-    const [activeProducts, setActiveProducts] = useState(products)
+    // const [activeProducts, setActiveProducts] = useState(products)
 
     const [colors, setColors] = useState(['black', 'white', 'multicolor', 'cyan', 'grey', 'green', 'pink', 'yellow'])
     const [sizes, setSzes] = useState(['xs', 's', 'm', 'l', 'xl', 'xxl'])
@@ -12,7 +12,6 @@ const FilterCategories = ({ products }) => {
     const [prices, setPrices] = useState(['$1000+', '$600-$100', '$300-$600', '$150-$300', '$50-$150', '$7-$50'])
 
     return (
-
 
         <div className="filter__categories">
             <div className="container">
@@ -49,9 +48,9 @@ const FilterCategories = ({ products }) => {
                     </ul>
                 </section>
             </div>
-        </div>
+        </div> 
 
     )
 }
-
-export default FilterCategories
+ 
+    export default FilterCategories

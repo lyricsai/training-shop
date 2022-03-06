@@ -2,7 +2,7 @@ import CardItem from '../cardItem/CardItem'
 import './RelatedProducts.css'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper'
-import { SlideNextButton, SlidePrevButton } from '../sliderButtons/SliderButtons'
+import { SlideNextButton, SlidePrevButton } from '../shared/sliderButtons/SliderButtons'
 import PropTypes from 'prop-types'
 import { Fragment } from 'react'
 

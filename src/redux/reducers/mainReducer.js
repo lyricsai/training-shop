@@ -52,7 +52,12 @@ const defaultState = {
         { id: 6, src: discover },
         { id: 7, src: americanExpress },
     ],
-    options: ["New Arrivals", "Specials", "Bestsellers", "Most Viewed", "Featured Products"]
+    options: [
+        {title:"New Arrivals", particular: "isNewArrivals"},
+        { title:"Specials", particular: "isSpecial"},
+        { title:"Bestsellers", particular: "isBestseller"},
+        { title:"Most Viewed", particular: "isMostViewed"},
+        { title:"Featured Products", particular: "isFeatured"},]
 }
 
 const MainReducer = (state = defaultState, { type, payload }) => {
