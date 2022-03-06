@@ -6,8 +6,10 @@ import "./Clothes.css"
 import loading from "../../assets/static/Square-Loading.gif"
 import PropTypes from "prop-types"
 import { useState, useEffect } from "react"
+import ProductsHeader from "./products-header/ProductsHeader"
 
-const Clothes = ({ category, products, options }) => {
+const Clothes = ({ category, products, options, url }) => {
+    
     let initialProducts = products.filter((product) => product.particulars["isNewArrivals"])
 
     const [isOpen, setIsOpen] = useState(false)
@@ -15,7 +17,6 @@ const Clothes = ({ category, products, options }) => {
     const [ActiveProducts, setActiveProducts] = useState(initialProducts)
 
     console.log(options[0].particular)
-    console.log(products.filter((product) => product.particulars[selectedOption]))
     console.log(ActiveProducts)
     console.log("selectedOption", selectedOption)
 
@@ -27,38 +28,48 @@ const Clothes = ({ category, products, options }) => {
         setIsOpen(false)
     }
 
-    const url = useLocation().pathname
+    url = useLocation().pathname
     let elem = null
     let loader
-    let styles = { marginTop: 96 }
 
-    url === "/"
-        ? (elem = (
-              <ClothesHeader
-                  options={options}
-                  filtering={ActiveProducts}
-                  handleClickOption={handleClickOption}
-                  toggling={toggling}
-                  isOpen={isOpen}
-                  selectedOption={selectedOption}
-                  category={category}
-              />
-          ))
-        : (styles = { marginTop: 0 })
+    url === "/" 
+    ?   elem = (
+            <ClothesHeader
+                options={options}
+                filtering={ActiveProducts}
+                handleClickOption={handleClickOption}
+                toggling={toggling}
+                isOpen={isOpen}
+                selectedOption={selectedOption}
+                category={category}  
+            />
+        )
+    :   elem = (
+        <ProductsHeader
+            title={category}
+            products={ActiveProducts}
+            options={options}
+            handleClickOption={handleClickOption}
+            toggling={toggling}
+            isOpen={isOpen}
+            selectedOption={selectedOption}
+            category={category}  
+        />
+        )
+    
 
     url === "/"
         ? (loader = <ButtonLight text="See all" size={"100%"} />)
         : (loader = (
-              <div className="clothes__loader">
-                  <img src={loading} alt="loading..." />
-              </div>
-          ))
+            <div className="clothes__loader">
+                <img src={loading} alt="loading..." />
+            </div>
+        ))
 
     return (
         <div className="container">
-            <section className="clothes" style={styles} data-test-id={`clothes-${category}`}>
+            <section className="clothes" data-test-id={`clothes-${category}`}>
                 {elem}
-
                 <ul className="clothes__products">
                     {ActiveProducts.map((item) => (
                         <li key={`${item.id}-${item.category}`}>
@@ -66,7 +77,6 @@ const Clothes = ({ category, products, options }) => {
                         </li>
                     ))}
                 </ul>
-
                 {loader}
             </section>
         </div>

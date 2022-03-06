@@ -1,91 +1,79 @@
-import Clothes from '../clothes/Clothes'
-import Home from '../home/Home'
-import Product from '../product/Product'
-import ProductsHeader from '../products-header/ProductsHeader'
-import RelatedProducts from '../relatedProducts/RelatedProducts'
-import './Main.css'
-import { connect } from 'react-redux'
-import { useLocation } from 'react-router'
-import PropTypes from 'prop-types'
-import {useEffect,useState} from 'react'
+import Clothes from "../clothes/Clothes"
+import Home from "../home/Home"
+import Product from "../product/Product"
 
-const Main = ({
-    page,
-    banners,
-    filtered,
-    options,
-    men,
-    women,
-    collections,
-    payments }) => {
+import RelatedProducts from "../relatedProducts/RelatedProducts"
+import "./Main.css"
+import { connect } from "react-redux"
+import { useLocation } from "react-router"
+import PropTypes from "prop-types"
+import { useEffect, useState } from "react"
 
-    let url = useLocation().pathname.split('/')[1]
+const Main = ({ page, banners, filtered, options, men, women, collections, payments }) => {
 
+    let url = useLocation().pathname.split("/")[1]
+console.log(url)
     let products = {}
 
-    const [category,setCategory] = useState(`${url}`)
-    const [resourseType,setResourseType] = useState(products)
-    const [items,setItems] = useState([])
+    const [category, setCategory] = useState(url)
+    const [resourseType, setResourseType] = useState(products)
+    const [items, setItems] = useState([])
 
-    useEffect(()=>{
+    useEffect(() => {
+        if (url === "women") {
+            setCategory("women")
+            setResourseType(women)
+        } else if (url === "men") {
+            setCategory("men")
+            setResourseType(men)
+        }
+    }, [category])
 
-    if (url === 'women'){ 
-        setCategory ('women')
-        setResourseType(women)
-    }
-    else if (url === 'men') {
-        setCategory  ('men')
-        setResourseType(men)
-    }
-    },[category])
+    useEffect((category) => {
+        setItems(products[category])
+    }, [resourseType])
 
-    useEffect(()=>{setItems()},[resourseType])
+    category === "women" ? products = women : products = men
 
-
-    category === 'women' ? products = women : products = men
-
-    let i = useLocation().pathname.split('/')[2]
+    let i = useLocation().pathname.split("/")[2]
 
     let product = products.filter((item) => item.id === i)[0]
 
-
-    if (page === 'home') return (
-        <main>
-            <Home
-                men={men}
-                women={women}
-                banners={banners}
-                collections={collections} 
-                options={options}/>
-        </main>)
-
-    else if (page === 'product') return (
-        <main>
-            <Product
-                category={category}
+    if (page === "home")
+        return (
+            <main>
+                <Home
+                    men={men}
+                    women={women}
+                    banners={banners}
+                    collections={collections}
+                    options={options}
+                />
+            </main>
+        )
+    else if (page === "product")
+        return (
+            <main>
+                <Product
+                    category={category}
+                    products={products}
+                    product={product}
+                    payments={payments}
+                />
+                <RelatedProducts related={filtered} category={category} />
+            </main>
+        )
+    else if (page === "products")
+        return (
+            <main>
+                <Clothes 
+                options={options} 
+                category={category} 
                 products={products}
-                product={product}
-                payments={payments}
-            />
-            <RelatedProducts
-                related={filtered}
-                category={category} />
-        </main>)
-
-    else if (page === 'products') return (
-        <main>
-            <ProductsHeader
-                title={category}
-                products={products}
-                options={options}
-            />
-            <Clothes
-                options={options}
-                category={category}
-                products={products}
-            />
-        </main>
-    )
+                url={url}
+                />
+            </main>
+        )
 }
 
 const mapStateToProps = (state, { page }) => {
@@ -97,7 +85,7 @@ const mapStateToProps = (state, { page }) => {
         payments: state.main.payments,
         men: state.products.men,
         women: state.products.women,
-        page: page
+        page: page,
     }
 }
 

@@ -18,7 +18,12 @@ const ProductChoice = ({ colors, color, sizes }) => {
         <div className="product__choice">
             <div className='product_color'>Color: <span>{color}</span></div>
             <ul className="product__pics_colors">
-                {colors.map(item => <li key={item.id}><Link to={'#'} className='product__color_select'><img src={imageUrl + item} alt="color" /></Link></li>)}
+                {colors.map(item => <li key={item.id}>
+                    <Link 
+                        to={'#'} 
+                        className='product__color_select'>
+                            <img src={imageUrl + item} alt="color" />
+                    </Link></li>)}
             </ul>
             <div className='product_size_block'>
                 <div className='product_size'>Size: <span>{size}</span></div>

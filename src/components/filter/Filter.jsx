@@ -1,55 +1,60 @@
-import './Filter.css'
-import { useState, useEffect } from 'react'
-import FilterCategories from './FilterCategories/FilterCategories'
+import "./Filter.css"
+import { useState, useEffect } from "react"
+import FilterCategories from "./FilterCategories/FilterCategories"
+import { Link } from "react-router-dom"
 
+const Filter = ({ 
+    category, 
+    products,
+    options ,
+    isOpen,
+    toggling,
+    handleClickOption,
+    selectedOption
 
-const Filter = ({ products, options }) => {
-    console.log(options)
+}) => {
+    
+    selectedOption = 'isBestseller'
 
-    const [isOpen, setIsOpen] = useState(false)
     const [isOpenFilter, setIsOpenFilter] = useState(false)
 
-    const toggling = () => setIsOpen(!isOpen)
+console.log( options.filter(option=>option.particular===selectedOption)
+)
     const showFilter = () => setIsOpenFilter(!isOpenFilter)
-
-    const [selectedOption, setSelectedOption] = useState(options[2])
-
-    const onOptionClicked = value => () => {
-        setSelectedOption(value);
-        setIsOpen(false);
-    }
+    console.log(selectedOption)
 
     return (
         <div className="container">
-            <div className='filter'>
+            <div className="filter">
                 <div className="filter__controls" onClick={showFilter}>
-                    <i className='icon-filter'></i>
+                    <i className="icon-filter"></i>
                     <span>Filter</span>
                 </div>
                 <div className="filter__view">
-                    <i className='icon-menu-def'></i>
-                    <i className='icon-view-grid-selected'></i>
+                    <i className="icon-menu-def"></i>
+                    <i className="icon-view-grid-selected"></i>
                 </div>
                 <div className="filter__selection">
-                    <div
-                        className="filter__selection_header"
-                        onClick={toggling}>
-                        {selectedOption || "Bestsellers"}
-                        <div className='icon'><i className="icon-arrow"></i></div></div>
+                    <div className="filter__selection_header" onClick={toggling}>
+                        {}
+                        <div className="icon">
+                            <i className="icon-arrow"></i>
+                        </div>
+                    </div>
                     {isOpen && (
-                        <ul className='custom__select'>
-                            { options.map(option => (
-                                <li onClick={onOptionClicked(option)} key={Math.random()}>
-                                    {option}
-                                </li>
-                            ))}</ul>
+                        <ul className="custom__select">
+                            {options.map(({title,particular}) => (
+                                <li key={Math.random()+title}> <Link to='#' onClick={handleClickOption(particular)} >
+                                    {title}
+                                </Link></li> 
+                            ))}
+                        </ul>
                     )}
                 </div>
             </div>
-            { isOpenFilter && <FilterCategories products={products} />}
+            {isOpenFilter && <FilterCategories products={products} />}
         </div>
     )
 }
-
 
 export default Filter

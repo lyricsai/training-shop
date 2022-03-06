@@ -5,11 +5,12 @@ import FilterCategory from './FilterCategory/FilterCategory'
 const FilterCategories = ({ products }) => {
 
     // const [activeProducts, setActiveProducts] = useState(products)
+    const pricesLevels = ['$1000+', '$600-$100', '$300-$600', '$150-$300', '$50-$150', '$7-$50']
 
-    const [colors, setColors] = useState(['black', 'white', 'multicolor', 'cyan', 'grey', 'green', 'pink', 'yellow'])
-    const [sizes, setSzes] = useState(['xs', 's', 'm', 'l', 'xl', 'xxl'])
-    const [brands, setBrands] = useState(['mango', 'h%m'])
-    const [prices, setPrices] = useState(['$1000+', '$600-$100', '$300-$600', '$150-$300', '$50-$150', '$7-$50'])
+    const [colors, setColors] = useState([])
+    const [sizes, setSzes] = useState([])
+    const [brands, setBrands] = useState([])
+    const [prices, setPrices] = useState(pricesLevels)
 
     return (
 

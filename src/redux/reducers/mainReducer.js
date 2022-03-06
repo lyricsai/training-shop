@@ -53,7 +53,7 @@ const defaultState = {
         { id: 7, src: americanExpress },
     ],
     options: [
-        {title:"New Arrivals", particular: "isNewArrivals"},
+        { title:"New Arrivals", particular: "isNewArrivals"},
         { title:"Specials", particular: "isSpecial"},
         { title:"Bestsellers", particular: "isBestseller"},
         { title:"Most Viewed", particular: "isMostViewed"},

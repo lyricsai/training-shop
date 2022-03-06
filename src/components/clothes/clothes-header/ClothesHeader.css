@@ -8,7 +8,7 @@
     align-items: center;
     margin-bottom: 48px;
 }
-.clothes__cats_item a {
+a.clothes__cats_item  {
     text-transform: uppercase;
     font-size: 12px;
     line-height: 13px;
@@ -24,18 +24,17 @@
     letter-spacing: 0.06em;
     text-transform: uppercase;
 }
-.clothes__header ul li {
-}
-.clothes__header ._active {
+
+.clothes__header .selected {
     font-weight: 500;
     opacity: 1;
 }
 
-.clothes_filter__selection_header {
+.clothes_filter__selection {
     display: flex;
 }
 
-.clothes_filter__selection_header ul {
+.clothes_filter__selection ul {
     text-align: left;
 }
 
@@ -48,7 +47,7 @@
         display: flex;
         flex-direction: column;
     }
-    .clothes__cats_item a._active {
+    a.clothes__cats_item.selected {
         display: block;
     }
 }

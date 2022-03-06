@@ -12,15 +12,5 @@ const ProductsReducer = (state = Products, { type, payload }) => {
 export const getMen = () => (dispatch) => dispatch({ type: GET_MEN })
 export const getWomen = () => (dispatch) => dispatch({ type: GET_WOMEN })
 
-// export const mapStateToProps = (state = Products) => {
-//     return {
-//         women: state.women,
-//         men: state.men,
-//     }
-// }
-
-// export const mapDispatchToProps = () => {
-//     return {}
-// }
 
 export default ProductsReducer

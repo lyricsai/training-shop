@@ -20,6 +20,12 @@
     padding: 13px 24px;
     font-weight: 600;
     line-height: 22px;
+    transition: all 0.8s ease 0s;
+  
+}
+.campaignTeaser:hover{
+    padding: 30px 40px;
+transition: all 0.8s ease 0s;
 }
 
 .main__category:last-child {
