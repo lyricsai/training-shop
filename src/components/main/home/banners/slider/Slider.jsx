@@ -1,5 +1,5 @@
 import './Slider.css'
-import slider from '../../../../assets/static/girl-slider.jpg'
+import slider from '../../../../../assets/static/girl-slider.jpg'
 import { Navigation } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'

@@ -15,10 +15,11 @@ const Rating = ({ rating }) => {
     for (let i = 1; i <= 5 - rating; i++) {
         rendering.push(starMinus)
     }
+
     return (
         <div className='rating'>
             <span className="rating__result"></span>
-            {rendering}
+            <ul>{rendering.map((element,index)=><li key={index}>{element}</li> )}</ul>
         </div>
     )
 }

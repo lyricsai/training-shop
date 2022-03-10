@@ -1,4 +1,4 @@
-import SocialNetwork from '../../socialNetwork/SocialNetwork'
+import SocialNetwork from '../../shared/socialNetwork/SocialNetwork'
 import Contacts from './contacts/Contacts'
 import './TopBar.css'
 

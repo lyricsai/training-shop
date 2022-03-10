@@ -1,38 +1,57 @@
 import './ProductChoice.css'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
+import classNames from "classnames"
 
-const ProductChoice = ({ colors, color, sizes }) => {
+const ProductChoice = ({ images, sizes }) => {
 
-    const [size, setSize] = useState([...new Set(sizes)][0])
+    let colors = [...new Set(images.map((item) => item.color))]
 
+    let colorLinks = Object.values(images.reduce((acc, item) => {
+        return {
+            ...acc,
+            [item.color]: item.url,
+        }
+    }, {}))
+
+    const [selectedSize, setSelectedSize] = useState(sizes[0])
+    const [selectedColor, setSelectedColor] = useState(colors[0])
     let imageUrl = 'https://training.cleverland.by/shop'
 
-    let handleSize = (event) => {
-        size = event.target.value
+    const handleSize = (value) => () => {
+        setSelectedSize(value)
     }
-    console.log('size', size)
-    console.log('color', color)
-    console.log('colorsPics', colors)
+    const handleColor = (value) => () => {
+        setSelectedColor([...new Set(images.filter((item) => item.url === value))][0].color)
+    }
+
     return (
         <div className="product__choice">
-            <div className='product_color'>Color: <span>{color}</span></div>
+            <div className='product_color'>Color: <span>{selectedColor}</span></div>
             <ul className="product__pics_colors">
-                {colors.map(item => <li key={item.id}>
-                    <Link 
-                        to={'#'} 
-                        className='product__color_select'>
-                            <img src={imageUrl + item} alt="color" />
-                    </Link></li>)}
+                {colorLinks.map(item => <li
+                    className={classNames("product__color_item", {
+                        selected: item === selectedColor,
+                    })}
+                    key={item}>
+                    <Link
+                        to={'#'}
+                        className='product__color_select'
+                        onClick={handleColor(item)}>
+                        <img src={imageUrl + item} alt="color" title={item.color} />
+                    </Link>
+                </li>)}
             </ul>
             <div className='product_size_block'>
-                <div className='product_size'>Size: <span>{size}</span></div>
+                <div className='product_size'>Size: <span>{selectedSize}</span></div>
                 <ul className='product_size_choice'>
                     {sizes.map((item) => <li
                         key={item}
-                        className="product__size_item">
+                        className={classNames("product__size_item", {
+                            selected: item === selectedSize,
+                        })}>
                         <Link to={'#'}
-                            onClick={() => handleSize}
+                            onClick={handleSize(item)}
                             value={item}>
                             {item}
                         </Link>
@@ -40,7 +59,9 @@ const ProductChoice = ({ colors, color, sizes }) => {
                     )}
                 </ul>
             </div>
-            <div className="handler"><i className='icon-handler'></i><Link to={'#'}>See guide</Link></div>
+            <div className="handler">
+                <i className='icon-handler'></i><Link to={'#'}>See guide</Link>
+            </div>
         </div>
     )
 }

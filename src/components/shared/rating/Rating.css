@@ -8,6 +8,9 @@
     overflow: hidden;
     height: 14px;
 }
+.rating ul{
+    display: flex;
+}
 
 .rating__star {
     font-size: 1em;

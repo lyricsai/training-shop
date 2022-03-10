@@ -9,12 +9,9 @@
     display: flex;
     justify-content: center;
 }
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1070px) {
     .clothes__products {
         justify-content: space-around;
-    }
-    .clothes__products .cards-item {
-        margin: 0 10px;
     }
     .clothes__products :nth-child(7),
     .clothes__products :nth-child(8) {

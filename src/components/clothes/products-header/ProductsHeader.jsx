@@ -4,13 +4,25 @@ import Filter from "../../filter/Filter"
 import { Link } from "react-router-dom"
 
 const ProductsHeader = ({
-    category, 
+    category,
     products,
-    options ,
+    options,
     isOpen,
     toggling,
     handleClickOption,
-    selectedOption
+    selectedOption,
+    isOpenFilter,
+    togglingFilter,
+    handler,
+    prices,
+    colors,
+    brands,
+    sizes,
+    activeBrand,
+    activeColor,
+    activePrice,
+    activeSize
+
 }) => {
 
     return (
@@ -35,14 +47,25 @@ const ProductsHeader = ({
                     <h1 className="products__title">{category}</h1>
                 </div>
             </div>
-            <Filter 
-                products={products} 
-                options={options}  
+            <Filter
+                handler={handler}
+                products={products}
+                options={options}
                 category={category}
                 isOpen={isOpen}
                 toggling={toggling}
                 handleClickOption={handleClickOption}
                 selectedOption={selectedOption}
+                isOpenFilter={isOpenFilter}
+                togglingFilter={togglingFilter}
+                prices={prices}
+                colors={colors}
+                brands={brands}
+                sizes={sizes}
+                activeColor={activeColor}
+                activeSize={activeSize}
+                activeBrand={activeBrand}
+                activePrice={activePrice}
             />
         </Fragment>
     )

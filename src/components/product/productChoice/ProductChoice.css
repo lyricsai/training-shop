@@ -38,8 +38,11 @@
     align-items: center;
     opacity: 0.7;
     color: #121212;
+    margin-right: 16px;
+    text-align: center;
 }
-.product__size_item::selection {
+.product__size_item.selected,
+.product__color_item.selected {
     opacity: 1;
     border: 2px solid #121212;
     background: #fff;

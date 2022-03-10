@@ -2,33 +2,19 @@ import ProductHeader from './product-header/ProductHeader'
 import './Product.css'
 import PropTypes from 'prop-types'
 import { ButtonDark } from '../shared/buttonDark/ButtonDark'
-import Review from '../main/review/Review'
+import Review from '../shared/review/Review'
 import review from '../../assets/static/review.svg'
 import ProductPics from './productPics/ProductPics'
 import ProductChoice from './productChoice/ProductChoice'
 import { Fragment } from 'react'
-import Rating from '../main/rating/Rating'
+import Rating from '../shared/rating/Rating'
 
 
 const Product = ({ product, payments }) => {
-    console.log(product)
 
     let { category, images, price, material, sizes, rating } = product
 
-    let prevs = images.map((item) => {
-        return item.url
-    })
-
-    let color = [...new Set(images.map((item) => item.color))]
-
-    let colors = Object.values(images.reduce((acc, item) => {
-        return {
-            ...acc,
-            [item.color]: item.url,
-        }
-    }, {}))
-
-    console.log(colors)
+    let prevs = images.map(item => item.url)
 
     return (
         <Fragment>
@@ -42,7 +28,7 @@ const Product = ({ product, payments }) => {
                         prevs={prevs}
                     />
                     <div className="product__second_part">
-                        <ProductChoice colors={colors} color={color} sizes={sizes} />
+                        <ProductChoice images={images} sizes={sizes} />
                         <div className="product__add_cart">
                             <span className="product__page_price">$ {price}</span>
                             <ButtonDark text={'Add to Card'} padding={'17px 24px 16px'} />
@@ -77,7 +63,7 @@ const Product = ({ product, payments }) => {
 
                         <div className="product__additional">
                             <h5>Additional Information</h5>
-                            <p>Color: <span>{color.join(' , ')}</span></p>
+                            <p>Color: <span>{[...new Set(images.map((item) => item.color))].join(' , ')}</span></p>
                             <p>Size: <span>{sizes.join(' , ')}</span></p>
                             <p>Material: <span>{material}</span></p>
                         </div>

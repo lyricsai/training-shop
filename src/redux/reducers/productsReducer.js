@@ -1,5 +1,5 @@
 import { Products } from './products'
-import { GET_MEN, GET_WOMEN } from '../actionsCreators/ActionCreator'
+import { GET_MEN, GET_WOMEN } from '../consts'
 
 const ProductsReducer = (state = Products, { type, payload }) => {
     switch (type) {

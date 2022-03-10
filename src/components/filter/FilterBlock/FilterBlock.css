@@ -1,0 +1,62 @@
+.filter__block {
+    color: #121212;
+    padding: 24px 12px;
+    font-family: Spartan;
+}
+.filter__block > div {
+    margin-left: 30px;
+}
+.filter__block h3 {
+    text-transform: uppercase;
+    font-weight: 600;
+    line-height: 22px;
+    letter-spacing: 0.06em;
+    text-align: left;
+    margin-bottom: 12px;
+}
+.filter__block ul {
+    height: 208px;
+    overflow-y: auto;
+}
+.filter__block li {
+    opacity: 0.8;
+}
+
+.filter__block li label {
+    font-size: 13px;
+    line-height: 34px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+.filter__block ul::-webkit-scrollbar {
+    width: 3px;
+    background-color: #e6e6e6;
+}
+
+.filter__block ul::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background-color: #8d8b8b;
+}
+
+.filter__block ul::-webkit-scrollbar-track {
+    border-radius: 3px;
+    background-color: #e6e6e6;
+}
+input[type="checkbox"] {
+    display: none;
+}
+input[type="checkbox"] + label {
+    cursor: pointer;
+}
+input[type="checkbox"] + label::before {
+    content: "";
+    display: inline-block;
+    height: 18px;
+    width: 18px;
+    margin: 0 5px 0 0;
+    background: #fff;
+    border: 1px solid #e6e6e6;
+}
+input[type="checkbox"]:checked + label::before {
+    background: #e6e6e6;
+}

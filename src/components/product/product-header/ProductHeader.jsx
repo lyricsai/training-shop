@@ -1,5 +1,5 @@
 import "./ProductHeader.css"
-import Rating from "../../main/rating/Rating"
+import Rating from "../../shared/rating/Rating"
 import { Link } from "react-router-dom"
 
 const ProductHeader = ({ product, category }) => {

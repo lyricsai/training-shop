@@ -22,7 +22,7 @@ import mastercard from '../../assets/payments/mastercard_x42.png'
 import discover from '../../assets/payments/discover_x42.png'
 import americanExpress from '../../assets/payments/american-express_x42.png'
 
-import { GET_BANNERS, GET_COLLECTIONS, GET_FILTERED, GET_OPTIONS } from '../actionsCreators/ActionCreator'
+import { GET_BANNERS, GET_COLLECTIONS, GET_FILTERED, GET_OPTIONS } from '../consts'
 
 const defaultState = {
     banners: [
@@ -53,11 +53,11 @@ const defaultState = {
         { id: 7, src: americanExpress },
     ],
     options: [
-        { title:"New Arrivals", particular: "isNewArrivals"},
-        { title:"Specials", particular: "isSpecial"},
-        { title:"Bestsellers", particular: "isBestseller"},
-        { title:"Most Viewed", particular: "isMostViewed"},
-        { title:"Featured Products", particular: "isFeatured"},]
+        { title: "New Arrivals", particular: "isNewArrivals" },
+        { title: "Specials", particular: "isSpecial" },
+        { title: "Bestsellers", particular: "isBestseller" },
+        { title: "Most Viewed", particular: "isMostViewed" },
+        { title: "Featured Products", particular: "isFeatured" },]
 }
 
 const MainReducer = (state = defaultState, { type, payload }) => {

@@ -84,6 +84,11 @@
         width: initial;
     }
 }
+@media (max-width: 900px) {
+    .campaignTeaser__slider {
+        background: transparent;
+    }
+}
 
 @media (max-width: 790px) {
     .main__slider {
@@ -91,7 +96,7 @@
         grid-row: 1/4;
     }
     .campaignTeaser__slider {
-        /* top: 45%; */
+        background: #fff;
         width: 40vw;
     }
     .main__slider .swiper {

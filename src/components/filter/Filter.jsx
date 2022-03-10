@@ -1,58 +1,95 @@
-import "./Filter.css"
-import { useState, useEffect } from "react"
-import FilterCategories from "./FilterCategories/FilterCategories"
+import './Filter.css'
 import { Link } from "react-router-dom"
+import classNames from "classnames"
+import FilterBlockContainer from './FilterBlock/FilterBlockContainer'
+import close from "../../assets/static/icon-close.svg"
 
-const Filter = ({ 
-    category, 
-    products,
-    options ,
-    isOpen,
-    toggling,
-    handleClickOption,
-    selectedOption
+const Filter = (
+    { category,
+        options,
+        isOpen,
+        toggling,
+        handleClickOption,
+        selectedOption,
+        isOpenFilter,
+        togglingFilter,
+        products,
+        handler,
+        prices,
+        colors,
+        brands,
+        sizes,
+        activeBrand,
+        activeColor,
+        activePrice,
+        activeSize
+    }
+) => {
 
-}) => {
-    
-    selectedOption = 'isBestseller'
+    let tag = options.map((option) => option.particular === selectedOption ? option.title : null)
 
-    const [isOpenFilter, setIsOpenFilter] = useState(false)
+    let elem = <ul>
+        {options.map(({ title, particular }) => (
+            <li key={particular}>  <Link to='#'
+                className={classNames(".products__cats_item", {
+                    selected: particular === selectedOption,
+                })}
+                area-hidden='true'
+                onClick={handleClickOption(particular)}
+                data-test-id={`clothes-${category}-${particular}`}
+            >
+                {title}
+            </Link></li>
+        ))}
+    </ul>
 
-console.log( options.filter(option=>option.particular===selectedOption)
-)
-    const showFilter = () => setIsOpenFilter(!isOpenFilter)
-    console.log(selectedOption)
 
     return (
-        <div className="container">
-            <div className="filter">
-                <div className="filter__controls" onClick={showFilter}>
-                    <i className="icon-filter"></i>
+        <div className="filter__container">
+            <div className='filter'>
+                <div className="filter__controls"
+                    onClick={togglingFilter}
+                    data-test-id='filter-button'
+                >
+                    {isOpenFilter ? <span><img src={close} alt="close" /></span> : <i className='icon-filter'></i>}
                     <span>Filter</span>
                 </div>
                 <div className="filter__view">
-                    <i className="icon-menu-def"></i>
-                    <i className="icon-view-grid-selected"></i>
+                    <i className='icon-menu-def'></i>
+                    <i className='icon-view-grid-selected'></i>
                 </div>
-                <div className="filter__selection">
-                    <div className="filter__selection_header" onClick={toggling}>
-                        {}
-                        <div className="icon">
+                <div
+                    className="filter__selection_header"
+                    onClick={toggling}>
+
+                    {tag || "Bestsellers"}
+
+                    {isOpen
+                        ? <div className="icon" style={{ transform: 'rotate(270deg)' }}>
                             <i className="icon-arrow"></i>
                         </div>
-                    </div>
-                    {isOpen && (
-                        <ul className="custom__select">
-                            {options.map(({title,particular}) => (
-                                <li key={Math.random()+title}> <Link to='#' onClick={handleClickOption(particular)} >
-                                    {title}
-                                </Link></li> 
-                            ))}
-                        </ul>
-                    )}
+                        : <div className="icon" style={{ transform: 'rotate(90deg)' }}>
+                            <i className="icon-arrow" ></i>
+                        </div>}
+                    {isOpen && elem}
                 </div>
+
             </div>
-            {isOpenFilter && <FilterCategories products={products} />}
+            <FilterBlockContainer
+                products={products}
+                category={category}
+                isOpenFilter={isOpenFilter}
+                togglingFilter={togglingFilter}
+                handler={handler}
+                prices={prices}
+                colors={colors}
+                brands={brands}
+                sizes={sizes}
+                activeColor={activeColor}
+                activeSize={activeSize}
+                activeBrand={activeBrand}
+                activePrice={activePrice}
+            />
         </div>
     )
 }

@@ -1,7 +1,7 @@
 import './Offer.css'
-import man from '../../../assets/static/man.png'
-import woman from '../../../assets/static/woman.png'
-import Form from '../../shared/form/Form'
+import man from '../../../../assets/static/man.png'
+import woman from '../../../../assets/static/woman.png'
+import Form from '../../../shared/form/Form'
 
 const Offer = () => {
     return (

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { Discount } from './discount/Discount'
-import Rating from '../main/rating/Rating'
+import Rating from '../shared/rating/Rating'
 import './CardItem.css'
 import PropTypes from 'prop-types'
 
